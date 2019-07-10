@@ -1,0 +1,67 @@
+user-profile{
+    --height: 70px;
+    background: rgb(252, 252, 252);
+    box-shadow: 0 0 8px -2px rgba(0, 0, 0, 0.479);
+    display: grid;
+    position: relative;
+    grid-column-gap: 8px;
+    grid-template-columns: 80px 1fr;
+    align-items: center;
+    border-radius: 52px !important;
+    padding-right: 12px !important;
+    box-sizing: border-box;
+    height: var(--height);
+    font-size: 1.2em;}
+    user-profile custom-input{
+        cursor: pointer;
+    }
+    user-profile span{
+        color: rgb(119, 119, 122);}
+        user-profile span:nth-child(1){
+            text-overflow: ellipsis; 
+            overflow: hidden; 
+            white-space: nowrap; 
+            font-size: 1.1em; 
+            color: rgb(119, 119, 122)
+        }
+
+
+user-profile > div[ng-transclude]{
+    --offset: 10px;
+    --size: calc(var(--height) + var(--offset));
+    position: absolute;
+    background: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="rgb(230, 230, 230)" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/><path d="M0 0h24v24H0z" fill="none"/></svg>') no-repeat 50% 50%;
+    background-color: inherit;
+    background-size: 70%;
+    top: calc(0px - var(--offset) / 2);
+    height: var(--size);
+    width: var(--size);
+    box-shadow: 0 0 12px -2px rgb(129, 129, 129);  
+    border-radius: 50%; 
+    overflow: hidden;
+}
+
+/* user-profile > div[ng-transclude] > *{
+    position: absolute;
+    top: calc(0px - var(--offset) / 2);
+    background: white;
+    height: var(--size);
+    width: var(--size);
+} */
+
+user-profile span:nth-of-type(2){
+    display: flex;
+    align-items: center;
+}
+
+user-profile span:nth-of-type(2)::before{
+  content: "";
+  display: inline-block;
+  background-image: url("/icons/smartphone.svg");
+  height: 24px;
+  width: 18px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  margin-right: 4px;
+}

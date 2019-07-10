@@ -1,0 +1,30 @@
+ng-controller[ng-controller="rangeFilter"] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  padding: 6px 0;
+  height: 64px;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  border-bottom: 1px sold black;
+}
+
+ng-controller[ng-controller="rangeFilter"] input {
+  margin: 0 16px;
+  text-align: center;
+  padding: 2px 0;
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid #dfdfdf;
+  outline: none;
+}
+
+ng-controller[ng-controller="rangeFilter"] input::-webkit-outer-spin-button, ng-controller[ng-controller="rangeFilter"] input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/*# sourceMappingURL=filterRange.css.map */

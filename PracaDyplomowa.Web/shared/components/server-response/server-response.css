@@ -1,0 +1,30 @@
+server-response > span {
+    display: block;}
+    server-response.ng-hide-remove{
+        transition: 600ms cubic-bezier(.71,.37,.58,1.71);
+        transform-origin: 50% 0%;
+        opacity: 0;
+        transform: perspective(600px) rotateX(-90deg);
+    }
+
+    server-response.ng-hide-remove.ng-hide-remove-active{
+        opacity: 1;
+        transform: perspective(600px) rotateX(0);
+    }
+
+    server-response > span.error{
+        background: rgb(255, 223, 223);
+        border-radius: 4px;
+        color: rgb(180, 128, 128);
+        border: 1px solid rgb(236, 204, 204);
+        margin: 4px;
+        padding: 4px;
+    }
+    server-response > span.success{
+        background: rgb(206, 255, 199);
+        border-radius: 4px;
+        color: rgb(147, 211, 139);;
+        border: 1px solid rgb(190, 226, 184);
+        margin: 4px;
+        padding: 4px;
+    }

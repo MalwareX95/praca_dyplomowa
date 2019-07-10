@@ -1,0 +1,17 @@
+<input 
+    ng-model="$ctrl.text" 
+    ng-model-options="{debounce: 100}"
+    ng-change="$ctrl.onSearching({$sender: this, $event: $ctrl.text})"
+    placeholder="Miasto"
+    ng-focus="$ctrl.emitDomEvent('focus')"
+    ng-blur="$ctrl.onBlurHandler()"
+    ng-on-input="$ctrl.onInputHandler()"
+    type="search">
+    <ul ng-class="{fade: $ctrl.isLoading, selected: $ctrl.value}">
+        <li ng-repeat="item in $ctrl.items"
+            ng-click="$ctrl.value = ($ctrl.value == item) ? null : item"
+            ng-class="{active: item == $ctrl.value}" 
+            ng-transclude>
+        </li>
+    </ul>
+    

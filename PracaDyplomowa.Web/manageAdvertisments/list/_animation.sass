@@ -1,0 +1,55 @@
+list 
+    > div:first-child  
+        ul.ng-hide-remove
+            transition: 200ms cubic-bezier(.56,.35,.78,1.37)
+            transform: translateY(-100%)
+        ul.ng-hide-remove.ng-hide-remove-active
+            transform: translateY(0)
+
+        ul.ng-hide-add
+            transition: 200ms cubic-bezier(.29,-0.45,.38,.53)
+            transform: translateY(0)
+        ul.ng-hide-add.ng-hide-add-active
+            transform: translateY(-100%)
+    > ul:nth-child(2)
+        li.ng-leave
+            z-index: -1
+            animation: list_slideOut 500ms ease-in
+            animation-fill-mode: forwards
+        li.ng-enter
+            z-index: -1
+            position: absolute
+            animation: list_slideIn 200ms ease-in-out    
+        li.ng-enter-stagger, li.ng-leave-stagger
+            animation-delay: 50ms
+
+
+@keyframes highlight
+    from
+        width: 36px
+        height: 36px
+        opacity: .30
+        border-radius: 50%
+    to
+       opacity: 0
+       border-radius: 50%
+       transform: scale(0)
+
+@keyframes list_slideOut
+    0%
+        opacity: 1
+        transform: translateX(0)
+    40%
+        opacity: .20
+    80%
+        transform: translateX(-100%)
+    100%
+        opacity: 0
+
+@keyframes list_slideIn 
+    0%
+        opacity: 0
+        transform: translateY(-70px)
+    100%
+        opacity: 1
+        transform: translateY(0)

@@ -1,0 +1,48 @@
+<form  role="form" ng-show="current" style="padding-left: 12px; box-sizing: border-box;">
+    <div class="foo">
+        <p>Informacje podstawowe</p>
+        <div>
+            <label for="tel">
+                Telefon
+                <input class="form" 
+                       name="tel" 
+                       type="tel" 
+                       pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"
+                       minlength="4" 
+                       ng-model="current.phone" 
+                       placeholder="np. 123-123-123">
+            </label>
+            <label for="price">
+                Cena
+                <input class="form" name="price" type="text" ng-model="current.price">
+            </label>
+            <!-- <input class="form" type="text" placeholder="Typ"> -->
+            <label for="level">
+                Piętro
+                <input name="level" type="text"> <span>z</span> <input type="text" >
+            </label>
+            <label for="area">
+                Powierzchnia m<sup>2</sup>
+                <input class="form" name="area" type="text" ng-model="current.area">
+            </label>
+            <label for="rooms">
+                Ilosc pokoi
+                <input class="form" type="text" name="rooms" ng-model="current.rooms"> 
+            </label>
+        </div>
+    </div>
+    <hr>
+    <div class="bar" style="flex-basis: 280px;">
+        <p>Media</p>
+        <list collection="hints.media" 
+              placeholder="Wybierz media"
+              empty="Wybrano wszystkie media">
+        </list>
+    </div>
+    <hr>
+    <div style="min-height: calc(100vh - 45px); display: flex; flex-direction: column;">
+        <p>Opis <span style="float: right">Pozostało {{3000 - description.length}}</span></p>
+        <textarea ng-model="description" maxlength="3000" placeholder="Napisz krótki opis swojego ogłoszenia" style="flex: 1; resize: none;  border: none; border-top: 1px solid rgb(236, 236, 236); outline: none; border-bottom: 1px solid rgb(236, 236, 236);"></textarea>
+    </div>
+    <hr>
+</form>

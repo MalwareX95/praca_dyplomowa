@@ -1,0 +1,8 @@
+<ng-controller ng-controller="rangeFilter">
+    <input type="number"
+           placeholder="{{$ctrl.item.min.placeholder | hideInfinite:'brak':'od'}}"
+           ng-model="$ctrl.item.min.value">
+    <input type="number" 
+           placeholder="{{$ctrl.item.max.placeholder | hideInfinite:'brak':'do'}}"
+           ng-model="$ctrl.item.max.value">
+</ng-controller>

@@ -1,0 +1,25 @@
+<ng-transclude ng-transclude-slot="topBar"/>
+<div ng-ref="container" ng-on-scroll="$ctrl.onScrollHandler(container)">
+    <gallery ng-ref="$ctrl._galleryElement"
+             ng-ref-read="$element"
+             ng-class="{compact: $ctrl.isCompact, fullsize: $ctrl.isFullsize}"
+             ng-click="$ctrl.isFullsize = true" 
+             items="$ctrl.item.images" />
+    <user-profile input="$ctrl.userInfo">
+        <img ng-animate-swap="$ctrl.userInfo.image.data" 
+             ng-show="$ctrl.userInfo.image.data"  
+             ng-src="{{$ctrl.userInfo.image.data}}">
+    </user-profile>
+    <div ng-transclude="basicInfo"></div>
+    <ul class="columns" title="Media" ng-class="$ctrl.getColumnsClass($ctrl.item.media.length)">
+        <li ng-repeat="item in $ctrl.item.media" ng-transclude="media"></li>
+    </ul>
+
+    <ul class="columns" title="Informacje dodatkowe" ng-class="$ctrl.getColumnsClass($ctrl.item.extraInfo.length)">
+        <li ng-repeat="item in $ctrl.item.extraInfo" ng-transclude="extraInfo"></li>
+    </ul>
+
+    <expandable title="Opis"  content="$ctrl.item.description" style="--visible-to:300px">
+        <p style="white-space: pre-line; text-overflow: ellipsis; overflow: hidden; margin: 0" ng-bind="$parent.$ctrl.content"></p>
+    </expandable>
+</div>

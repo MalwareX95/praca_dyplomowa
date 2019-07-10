@@ -1,0 +1,124 @@
+.signIn{
+  position: relative;
+  background: rgba(255, 255, 255, 1);
+  width: 400px;
+  box-shadow:  0px 0px 12px white;
+  border-radius: 4px;
+  min-height: 310px;
+  height: fit-content;
+  /* height: 400px ; */
+}
+
+
+.signIn > button {
+  position: absolute;
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  right: 0;
+  border: none;
+  transition: 200ms;
+  margin-top: -10px;
+  margin-right: -10px;
+  box-shadow:  0px 0px 4px white;
+  background: rgb(37, 37, 37);
+  width: 26px;
+  height: 26px;
+  color: white;
+  border-radius: 50%;
+}
+
+.signIn > button:hover{
+  opacity: .60;
+}
+
+.signIn > tabs {
+  width: 240px;
+  margin: auto;
+  margin-bottom: 6px;
+}
+
+/* .signIn > div:nth-of-type(1) {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  height: 40px;
+  overflow: hidden;
+  margin: auto;
+  margin: 8px auto;
+  border-radius: 20px;
+  width: 240px;
+} */
+
+
+/* div.fo::before{
+   content: "";
+   transition: 200ms;
+   width: 50%;
+   height: 100%;
+   display: block;
+   background: orange;
+} */
+
+div.fo.login::before{
+  transform: translateX(0)
+}
+
+div.fo.register::before{
+  transform: translateX(100%);
+}
+
+/* .signIn > div:nth-of-type(1) > label{
+  cursor: pointer;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+
+
+/* .signIn > div:nth-of-type(1) > label::after{
+  height: 2px;
+  display: block;
+  flex-basis: 80%;
+  content: "";
+  background: red;
+} */
+
+
+/* .signIn > div:nth-of-type(1) > label:first-of-type{
+  background: green;
+}
+
+.signIn > div:nth-of-type(1) > label:nth-of-type(2){
+  background: lightblue;
+}
+
+.signIn > div:nth-of-type(1) > input:first-of-type:checked + label{
+  background: pink;
+}
+
+.signIn > div:nth-of-type(1) > input:nth-of-type(2):checked + label{
+  background: blue;
+} */
+
+/* .signIn > div:nth-of-type(1) input{
+  display: none;
+} */
+
+
+.signIn div[ng-include] input{
+  flex: 1;
+}
+
+.signIn button[type=submit]{
+  border-radius: 50%;
+  border: none;
+  margin: 12px 0;
+  align-self: center;
+  outline: none;
+  height: 50px;
+  width: 50px;
+}

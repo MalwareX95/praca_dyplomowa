@@ -1,0 +1,14 @@
+file-selector {
+  display: inline-block;
+  min-width: 60px;
+  min-width: 60px;
+  cursor: pointer;
+  border: 1px solid #dddddd;
+  background: url(/icons/add-ad.svg) no-repeat 50%;
+  background-size: 20%;
+}
+
+file-selector input {
+  display: none;
+}
+/*# sourceMappingURL=fileSelector.css.map */

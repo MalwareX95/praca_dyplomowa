@@ -1,0 +1,108 @@
+@import "./components/userProfile/userProfile.css";
+@import "./components/draggable/draggable.css";
+@import "./login/login.css";
+@import "./directives/overflow/overflow.css";
+@import "./components/password/password.css";
+@import "./components/forms/register/register.css";
+@import "./css/modal.css";
+@import "./css/ngFade.css";
+@import "./components/searchbox/searchbox.css";
+@import "./components/index.css";
+@import "./directives/ngResizable/ngResizable.css";
+
+
+.menu-hover{
+    transition: box-shadow 200ms;
+}
+
+.menu-hover:hover{
+    background: rgb(240, 240, 240);
+    box-shadow: inset 0 2px 0 0 coral;
+}
+
+.zoom-on-hover{
+    transition: 200ms ease-in-out;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.76);
+}
+
+.zoom-on-hover:hover{
+    transform: scale(1.1);
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.76);
+}
+
+.center-icon {
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+:root{
+    --main-theme: rgb(109, 201, 255);
+}
+
+.signIn form input:focus,
+form.ccqmo input:focus{
+    background: transparent !important;
+    box-shadow: 0 0 6px -1px rgb(18, 141, 255) !important;
+}
+
+button.gVWBuN{
+    background-color: transparent !important;
+    position: relative;
+    border: none;
+    box-shadow: none;
+}
+button.gVWBuN::before,
+button.gVWBuN::after{
+    content: "";
+    position: absolute;
+    --size: 3px;
+    z-index: 0;
+    width: calc(100% + 2 * var(--size));
+    height: calc(100% + 2 * var(--size));
+    border: var(--size) solid rgb(231, 231, 231);
+    border-radius: inherit;
+    top: calc(0px - var(--size));
+    left: calc(0px - var(--size));
+    box-sizing: border-box;
+}
+button.gVWBuN::after{
+    border: 2px solid;
+    border-color: var(--main-theme) transparent;
+    animation: spin 0.7s ease infinite;
+}
+
+div[ng-view].blur{
+    filter: blur(5px);
+}
+
+form.custom input:focus{
+    background: initial;
+}
+
+form.custom input.ng-invalid.ng-touched{
+    background-color: rgb(245, 228, 228);
+    box-shadow: inset 0 0 2px 0px rgb(216, 198, 198);
+}
+
+form.custom input.ng-touched.ng-valid{
+    background-color: rgb(220, 238, 220);
+    box-shadow: inset 0 0 2px 0px rgb(203, 216, 203);
+}
+
+@keyframes spin {
+    from{
+        transform: rotate(0deg)
+    }
+    to{
+        transform: rotate(360deg)
+    }
+}
+
+hr.dashed{
+    border: none;
+    margin: 30px 0;
+    border-right: 2px dashed rgb(236, 236, 236);
+    border-bottom: 2px dashed rgb(236, 236, 236);    
+}
+
+

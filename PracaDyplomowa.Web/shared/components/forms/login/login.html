@@ -1,0 +1,22 @@
+<form role="form" name="form" ng-submit="$ctrl.logIn(form)" novalidate>
+     <input type="text" 
+            name="userName" 
+            style="grid-row: 1"
+            tabindex="1"
+            ng-model="userName"  
+            required="required" 
+            placeholder="nazwa użytkownika">
+     <error-messages style="grid-row: 1" for="form.userName" />
+
+     <input type="password" 
+            name="password" 
+            style="grid-row: 2";
+            ng-model="password"  
+            required="required" 
+            tabindex="2"
+            placeholder="hasło">
+     <error-messages style="grid-row: 2" for="form.password" />
+
+     <button style="justify-self: center;" ng-disabled="form.$invalid" ng-class="{'gVWBuN': $ctrl.isLoggin}"  type="submit"></button>
+     <server-response response="$ctrl.serverResponse"/>
+</form>

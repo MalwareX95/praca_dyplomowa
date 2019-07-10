@@ -1,0 +1,5 @@
+<div ng-controller="EditCard as EditCardCtrl" style="width: inherit; height: inherit;">
+    <button ng-if="isContentChanged" class="accept" ng-click="EditCardCtrl.apply()"></button>
+    <button ng-if="isContentChanged" class="restore" ng-click="EditCardCtrl.restore()"></button>
+    <button class="cancel" ng-click="EditCardCtrl.restore(true)"></button>
+</div>

@@ -1,0 +1,115 @@
+error-messages{
+    --arrow-size:8px;
+    --background-color: rgba(0, 0, 0, 0.65);
+    --width: 180px;
+    position: absolute;
+    display: flex;
+    font-size: .9em;
+    padding: 4px;
+    width: var(--width);
+    opacity: .80;
+    user-select: none;
+    align-items: center;
+    right: 100%;
+    justify-content: center;
+    justify-self: end;
+    margin-right: calc(var(--arrow-size) + 2px);
+    /* box-shadow: 0 0 1px 0 rgb(70, 70, 70); */
+    border-radius: 6px;
+    background: var(--background-color);
+    color: rgba(255, 255, 255, 0.897);
+    transition: visibility 400ms ease-in, opacity 400ms ease-in;
+    animation: slide 200ms ease-in;}
+
+    error-messages.arrow-up{
+        animation-name: slidedown;
+        left: calc(50% - var(--width) / 2);
+    }
+
+    error-messages img{
+        float: left;
+        shape-outside: circle(50%);
+        margin-right: 6px;
+    }
+
+@keyframes slide {
+    from{
+        opacity: 0;
+        transform: translateX(10px);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+
+@keyframes slidedown {
+    from{
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to{
+        transform: translateY(0);
+    }
+}
+
+
+error-messages::after{
+    position: absolute;
+    left: 100%;
+    top: 10%;
+    content: "";
+    border-top: var(--arrow-size) solid transparent;
+    border-bottom: var(--arrow-size) solid transparent;
+    border-left: var(--arrow-size) solid var(--background-color);
+}
+
+error-messages.arrow-up {
+    margin-top: var(--arrow-size);
+}
+
+error-messages.arrow-up::after{
+    left: calc(50% - var(--arrow-size) / 2);
+    top: calc(0px - var(--arrow-size));
+    border-top: unset;
+    border-left: var(--arrow-size) solid transparent;
+    border-right: var(--arrow-size) solid transparent;
+    border-bottom: var(--arrow-size) solid var(--background-color);
+}
+
+error-messages:hover{
+    z-index: 1;
+    opacity: 1;
+}
+
+
+/* error-messages{
+    --arrow-size:10px;
+    --background-color: rgba(231, 231, 231, 0.9);
+    position: fixed;
+    max-width: 260px;
+    width: fit-content !important;
+    padding: 10px;
+    direction: ltr !important;
+    box-sizing: border-box;
+
+    box-shadow: 1px 1px 6px -1px rgba(0, 0, 0, 0.5);
+    margin-left: var(--margin);
+    background-color: var(--background-color);  
+    border-radius: 6px;
+    color: rgb(163, 40, 40);
+} */
+
+*:focus + error-messages,
+*:focus-within + error-messages,
+*.ng-valid + error-messages,
+*.ng-untouched.ng-invalid + error-messages{
+    display: none;
+}
+
+form.ng-submitted *.ng-invalid + error-messages{
+    display: inline-block !important;
+}
+
+form.ng-submitted *.ng-invalid:focus-within + error-messages{
+    display: none !important;
+}

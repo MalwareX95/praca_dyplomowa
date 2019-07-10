@@ -1,0 +1,59 @@
+<button class="button center-icon zoom-on-hover"
+        ng-click="showFilters = true">{{hideFilters}}</button>
+<detail item = "$ctrl.activeCard"
+        ng-resizable = "$ctrl.onDetailResizeHandler($event)"
+        ng-class="{open: $ctrl.showDetail}">
+        <top-bar-template>
+            <button ng-click="$ctrl.previousCard()"></button>
+            <button ng-click="$ctrl.showDetail = false"></button>
+            <button style="justify-self: end" ng-click="$ctrl.nextCard()"></button>
+        </top-bar-template>
+        <media-template>{{$parent.item.name}}</media-template>
+        <extra-info-template>{{$parent.item.name}}</extra-info-template>
+        <basic-info-template>
+            <ul style="padding: 0; margin: 0" ng-cloak>
+                <li ng-repeat="entry in $ctrl.infoEntries" dynamic-template="entry"></li>
+            </ul>
+        </basic-info-template>
+</detail>
+
+<filter-panel is-open="showFilters"
+              collection="$ctrl.advertisments"
+              filters-type = "$ctrl.filters"
+              collection-change="$ctrl.filteredCollection = $event"
+              on-reset = "$ctrl.clearFilters()">
+              <select ng-model="$ctrl.sortBy">
+                    <option value="" disabled selected> Sortuj według: </option>
+                    <option value="-price">Cena: malejąco</option>
+                    <option value="+price">Cena: rosnąco</option>
+                    <option value="-area">Powierzchnia: malejąco</option>
+                    <option value="+area">Powierzchnia: rosnąco</option>
+                    <option value="-creationTime">Data dodania: najnowsze</option>
+                    <option value="+creationTime">Data dodania: najstarsze</option>
+              </select>
+</filter-panel> 
+
+
+<div id="master" ng-class="{blur: modal.isVisible, dope: !$ctrl.advertisments.length, fade:showFilters}" >
+    <div id="advertisments" 
+         unselectable="on"
+         ng-ref="$ctrl.advertismentsContainer"
+         ng-click="$ctrl.showDetail = ($event.target.id != 'advertisments')">
+        <card ng-repeat="advertisment in $ctrl.filteredCollection | orderBy:$ctrl.sortBy"
+              data-id="{{::advertisment.id}}"
+              button-on-click="$ctrl.$scope.$broadcast('gallery-fullsize')"
+              item="::advertisment">
+              <entry-0>{{::advertisment.kind.name}}</entry-0>  
+              <entry-1>{{::advertisment.area}} m<sup>2</sup> </entry-1>
+              <entry-3>
+                    <div style="display: flex; margin-top: 10px; flex-flow: row wrap; direction: rtl; justify-content: flex-end">
+                        <div class="price">{{::advertisment.price | currency:'zł/mc':2}}</div>
+                        <div style="word-break: break-all; text-align: center"><span class="info">Pokoi:</span>{{::advertisment.rooms}}</div>
+                    </div>
+                    <div ng-if="::advertisment.city.rodzID == 6 && !$ctrl.$routeParams.gmin" style="display: flex; align-items: center; white-space: nowrap"><span class="info">Dzielnica:</span> <ng-overflow>{{::advertisment.city.gmin}}</ng-overflow></div>
+                    <div ng-if="::advertisment.city.gmin && !$ctrl.$routeParams.gmin && advertisment.city.rm != 99" style="display: flex; align-items: center; white-space: nowrap"><span class="info">Gmina:</span> <ng-overflow>{{::advertisment.city.gmin}}</ng-overflow></div>
+                    <div ng-if="::advertisment.city.rm == 99 && !$ctrl.$routeParams.miejsc" style="display: flex; align-items: center; white-space: nowrap"><span class="info">Część miasta:</span> <ng-overflow style="margin: 0 0 0 4px; white-space: nowrap">{{::advertisment.city.miejsc}}</ng-overflow></div>
+              </entry-3>
+        </card>
+    </div>
+</div>

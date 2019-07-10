@@ -1,0 +1,11 @@
+<div class="signIn" ng-click="$event.stopPropagation()">
+    <button ng-click="modal.isVisible = false">&times</button>
+    <tabs change="option = $event">
+        <tab-item text="Login" default="::true"/>
+        <tab-item text="Register" />
+    </tabs>
+    <div ng-switch on="option">
+        <login-form ng-switch-when="Login" />
+        <register-form ng-switch-when="Register" />
+    </div>
+</div>

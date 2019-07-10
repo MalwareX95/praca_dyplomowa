@@ -1,0 +1,24 @@
+lazy-list {
+  display: block;
+  position: relative;
+  overflow-y: auto;
+}
+
+lazy-list ul {
+  color: white;
+  overflow-x: hidden;
+  padding: 0;
+  margin: 0;
+  --order: 2;
+  list-style: none !important;
+}
+
+lazy-list ul li {
+  margin: 0;
+}
+
+lazy-list ul li.middle {
+  height: 6px;
+  background: red;
+}
+/*# sourceMappingURL=listView.css.map */

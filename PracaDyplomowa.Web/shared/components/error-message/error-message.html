@@ -1,0 +1,5 @@
+<div ng-messages="$ctrl.for.$error">
+    <img src="/icons/error.svg" alt="">
+    <span ng-repeat="(name, message) in $ctrl.messages" ng-message="{{name}}">{{message('')}}</span>
+    <span ng-repeat="error in $ctrl.serverErrors">{{error}} <br> </span>
+</div>

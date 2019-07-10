@@ -1,0 +1,75 @@
+tabs {
+  display: block;
+  --offset: 0px;
+  height: 40px;
+}
+
+tabs div[ng-transclude] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: calc(100% - 4px);
+}
+
+tabs div[ng-transclude] label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+tabs div[ng-transclude] label:hover {
+  background: #f0f0f0;
+}
+
+tabs div:nth-child(2) {
+  height: 2px;
+  background: #afafaf;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+tabs div:nth-child(2)::before {
+  content: "";
+  -webkit-transition: 400ms ease-in-out;
+  transition: 400ms ease-in-out;
+  width: 50%;
+  -webkit-transform: translateX(var(--offset));
+          transform: translateX(var(--offset));
+  height: 100%;
+  display: block;
+  background: orange;
+}
+
+tabs label {
+  cursor: pointer;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+tabs label input {
+  display: none;
+}
+
+tabs label input + span {
+  -webkit-transition: opacity 400ms, color 400ms ease;
+  transition: opacity 400ms, color 400ms ease;
+  color: #AFAFAF;
+  opacity: 0.5;
+}
+
+tabs label input:checked + span {
+  opacity: 1;
+  color: #49342C;
+  text-shadow: 0px 0px 1px rgba(73, 52, 44, 0.4);
+}
+/*# sourceMappingURL=tabs.css.map */

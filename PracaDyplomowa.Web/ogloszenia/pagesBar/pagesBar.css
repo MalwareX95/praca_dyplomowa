@@ -1,0 +1,140 @@
+pages-bar{
+    background: rgba(0, 0, 0, .50);
+    height: 16px;
+    width: 100%;
+    position: fixed;
+    box-sizing: border-box;
+    padding-right: 450px;
+    z-index: 2;
+}
+
+pages-bar button{
+    border: none;
+    outline: none;
+    padding: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    cursor: pointer;
+    align-self: center;
+    background: rgba(255, 255, 255, 0.411);
+    /* background: blue; */
+}
+
+pages-bar button:disabled{
+    cursor: default;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.521);
+    /* box-shadow: 0 0 2px 1px white; */
+}
+
+pages-bar > div > button{
+    background: rgba(255, 255, 255, 0.521);
+}
+
+pages-bar > div > div:nth-child(2){
+    flex: 1;
+}
+
+pages-bar .activePage{
+    box-shadow: 0 0 4px 1px rgb(120, 221, 255);
+    background: rgb(120, 221, 255);
+    /* background: rgb(83, 83, 83) !important; */
+}
+
+pages-bar > div:first-child,
+pages-bar .pagesContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+pages-bar .pagesContainer{
+    overflow: hidden;
+}
+
+pages-bar .pagesContainer > button:disabled{
+    opacity: .50;
+}
+
+pages-bar > div:first-child{
+    display: flex;
+    align-items: stretch;
+    height: 100%;
+    width: 264px;
+    margin: auto;
+    /* background: yellow; */
+}
+
+.swapLeft.ng-leave {
+    animation: swapLeftLeaving 650ms ease-in-out;
+}
+
+.swapLeft.ng-enter{
+    animation: swapLeftEnter 650ms ease-out;
+}
+
+.swapRight.ng-leave {
+    animation: swapRightLeaving 650ms ease-in-out;
+}
+
+.swapRight.ng-enter{
+    animation: swapRightEnter 650ms ease-out;
+}
+
+@keyframes swapRightEnter{
+    0%{
+        transform: translateX(-400px);
+        opacity: .50;
+        margin: 0;
+    }
+    80%{
+        margin: 0;
+    }
+    100%{
+        transform: translateX(0);
+        margin: auto 6px;
+    }
+}
+
+@keyframes swapRightLeaving{
+    0%{}
+    20%{
+        opacity: .50;
+        margin: 0;
+        transform:  translateX(0);
+    }
+    100%{
+        transform: translateX(400px);
+    }
+}
+
+
+@keyframes swapLeftEnter{
+    0%{
+        transform: translateX(400px);
+        opacity: .50;
+        margin: 0;
+    }
+    80%{
+        margin: 0;
+    }
+    100%{
+        transform: translateX(0);
+        margin: auto 6px;
+    }
+}
+
+@keyframes swapLeftLeaving{
+    0%{}
+    20%{
+        opacity: .50;
+        margin: 0;
+        transform:  translateX(0);
+    }
+    100%{
+        transform: translateX(-400px);
+    }
+}

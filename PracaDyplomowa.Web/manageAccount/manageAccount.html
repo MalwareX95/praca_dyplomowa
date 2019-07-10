@@ -1,0 +1,52 @@
+<h1>Dane do ogłoszenia</h1>
+<form name="userInfoForm" ng-submit="$ctrl.changeUserData(userInfoForm)" novalidate>
+    <input style="grid-row: 1;" 
+            ng-model="user.name"
+            placeholder="Imię" 
+            required
+            name="name" 
+            type="text"  
+            pattern="[a-zA-Z]{0,12}"
+            maxlength="12">
+    <error-messages for="userInfoForm.name" messages="$ctrl.userInfoFormMessages.name" style="grid-row: 1;" />
+    <input style="grid-row: 2;" 
+            name="surname" 
+            required
+            ng-model="user.surname" 
+            placeholder="Nazwisko" 
+            type="text" 
+            maxlength="20" 
+            pattern="[a-zA-Z]{0,20}">
+    <error-messages for="userInfoForm.surname" messages="$ctrl.userInfoFormMessages.surname" style="grid-row: 2;" />
+    <input style="grid-row: 3;" 
+            name="phone" 
+            ng-model="user.phone"
+            placeholder="Telefon"
+            maxlength="9"
+            pattern="[0-9]{9}"
+            required
+            ng-model-options="{updateOn: 'blur'}"
+            type="tel">
+    <error-messages for="userInfoForm.phone" messages="$ctrl.userInfoFormMessages.phone" style="grid-row: 3;" />
+    <user-profile input="user">
+        <custom-input name="profileImage" ng-model="user.profileImage" />
+    </user-profile>
+    <button type="submit">Zmień</button>
+    <server-response ng-show="$ctrl.editResponse" response="$ctrl.editResponse"/>
+</form>
+<hr class="dashed">
+
+<h1>Zmień hasło</h1>
+<form name="passwordForm" ng-submit="$ctrl.changePassword(passwordForm)" novalidate >
+    <input style="grid-row: 1" type="password" ng-model="currentPassword" name="currentPassword" placeholder="stare hasło">
+    <error-messages style="grid-row: 1;" for="passwordForm.currentPassword" />
+
+    <input style="grid-row: 2" type="password" ng-model="newPassword" name="newPassword" placeholder="hasło">
+    <error-messages style="grid-row: 2;" for="passwordForm.newPassword" />
+
+    <input style="grid-row: 3" type="password" ng-model="newPasswordConfirm" name="newPasswordConfirm" placeholder="powtorz hasło">
+    <error-messages style="grid-row: 3;" for="passwordForm.newPasswordConfirm" />
+
+    <button type="submit">Zmień</button>
+    <server-response ng-show="$ctrl.passwordChangeReponse" response="$ctrl.passwordChangeReponse"/>
+</form>

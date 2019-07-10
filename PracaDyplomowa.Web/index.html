@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rento.pl: Ogłoszenia wynajmu nieruchomości</title>
+</head>
+
+<body ng-controller="main as $ctrl">
+    <nav>
+        <button class="hamburger" ng-click="listVisible = !listVisible"></button>
+        <ul ng-class="{visible: listVisible}">
+            <li><a class="menu-hover" href="">Kontakt</a></li>
+            <li><a class="menu-hover" href="">O mnie</a></li>
+            <li><a class="menu-hover" href="">Inne</a></li>
+        </ul>
+        <a href="/" id="logo"> Logo </a>
+        <a href="/#!/konto/ogloszenia" router-link-active class="icon" content="Ogłoszenie" id="add-advert"></a>
+        <a href="/#!/konto/edytujDane" router-link-active class="icon" content="Konto" id="account"></a>
+        <button class="icon" id="logout" ng-if="$ctrl.user.isAuth"  ng-click="$ctrl.user.logOut()"></button>
+        <searchbar compact-mode="isCompact"
+                   ng-model="$ctrl.searchedCity"
+                   on-search="$ctrl.cityService.current = $event"
+                   ng-model-options="{debounce: 50}"
+                   ng-change="$ctrl.onChangeHandler()"
+                   results="$ctrl.results"
+                   ng-focus="$ctrl.connectWithServer()"
+                   ng-media-query="(max-width: 620px)" 
+                   ng-media-query-action="isCompact = $event.matches" 
+                   id="searchbar">
+                   <span ng-bind-html="::$ctrl.template($parent.item)"></span>
+        </searchbar>
+    </nav>
+    <div id="modal" 
+         ng-if="modal.isVisible" 
+         ng-style="{visibility: 'visible'}" 
+         ng-class="modal.class" 
+         ng-click="modal.isVisible = false"
+         ng-include="modal.template">
+    </div>
+    <div ng-class="{blur: modal.isVisible}" ng-ref="$element" ng-on-transitionend="$broadcast('ng-overflow:refresh')" ng-view></div>
+    <script src="app.js" type="module"></script>
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/signalr/jquery.signalR.min.js"></script>
+</body>
+
+</html>
+

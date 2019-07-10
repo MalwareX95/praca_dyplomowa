@@ -1,0 +1,31 @@
+.draggable{
+    display: inline-block;
+    transition: 200ms;}
+    .draggable > div[ng-transclude] {
+        position: relative;
+        height: 100%;
+    }
+/* .draggable.dragover  > div[ng-transclude],
+.draggable.dragstart > div[ng-transclude]{
+    transform: scale(.80) !important;
+    opacity: .20;
+}
+
+.draggable.dragover  > div[ng-transclude]{
+    animation: jump 400ms ease-in-out;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+@keyframes jump {
+    from {
+        transform: scale(.80) translateY(0);
+    }
+    to{
+        transform: scale(.80) translateY(10px);
+    }
+} */
+
+.draggable.lock{
+    pointer-events: none;
+}

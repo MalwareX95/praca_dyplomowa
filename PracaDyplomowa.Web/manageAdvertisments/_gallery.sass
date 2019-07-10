@@ -1,0 +1,101 @@
+manage-advertisments #gallery
+    flex: 1
+    display: grid
+    justify-items: stretch
+    grid-gap: 6px
+    /* min-width: 410px */
+    align-content: start
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
+    
+    file-selector
+        order: 2
+        border-radius: 8px
+        &:first-child
+            width: 200px
+            justify-self: center
+
+    file-selector, ng-draggable
+        min-width: 200px
+        height: 100%
+        min-height: 200px
+
+    ng-draggable.ng-enter
+        animation: ng-draggable_enter 500ms
+
+    ng-draggable.ng-leave
+        transition: 600ms ease-in !important
+        opacity: 1
+        transform: rotate(0)
+
+    ng-draggable.ng-leave.ng-leave-active
+        opacity: 0
+        transform: rotate(360deg) scale(0)
+
+    ng-draggable.remove
+        order: 1
+    
+    ng-draggable 
+        > div[ng-transclude]
+            display: flex
+            justify-content: flex-end
+            align-items: start
+            box-shadow: 0 0 6px -1px rgba(0, 0, 0, 0.801)
+            border-radius: 8px
+            transition: 200ms ease-in-out
+            overflow: hidden
+        
+        img
+            position: absolute
+            top: 0
+            left: 0
+        
+        button
+            position: relative
+            height: 24px
+            width: 24px
+            opacity: .40
+            background: transparent
+            border: none
+            outline: none
+            /* background: rgba(145, 145, 145, 0.205) */
+            background-repeat: no-repeat
+            background-size: cover
+            background-position: 50% 50%
+            z-index: 1
+            &:hover
+                opacity: .80
+        button.bin
+            background-image: url("/icons/baseline-delete-24px.svg")
+        button.bin.restore 
+            background-image: url("/icons/baseline-restore-24px.svg")
+        button.apply
+            background-image: url("/icons/baseline-done-24px.svg")
+
+    ng-draggable.delete
+        transition-property: order
+        transition-delay: 400ms
+        animation: kk 800ms ease-in
+        order: 1
+
+        img
+            opacity: .40
+    
+    
+
+
+@keyframes kk 
+    0%
+        transform: scale(1)
+    50%
+        transform: scale(0)
+    95%
+        transform: scale(1.1)
+    100%
+        transform: scale(1)
+        
+    
+@keyframes ng-draggable_enter
+    from
+        opacity: 0
+    to
+        opacity: 1

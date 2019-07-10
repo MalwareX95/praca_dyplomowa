@@ -1,0 +1,175 @@
+@import "./components/card/card.css";
+@import "./components/detail/detail.css";
+@import "./pagesBar/pagesBar.css";
+@import "./components/expandable/expandable.css";
+@import "./components/filterItem/index.css";
+@import "./components/filtersPanel/filtersPanel.css";
+@import "./components/detail/imageGallery.css";
+@import "./components/gallery/gallery.css";
+@import "./components/acordeon/acordeon.css";
+
+
+card > div:hover .price{
+    opacity: .10;
+}
+
+card .price{
+    position: relative;
+    text-align: center; 
+    transition: opacity 300ms ease-out;
+    height: fit-content;
+    flex: 1;
+    direction: ltr;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    transform: rotate(-5deg) translateY(-10px) translateX(4px);
+    padding: 0 10px;
+}
+  
+card .price::before{
+    display: block;
+    content: "";
+    z-index: -1;
+    position: absolute;
+    --padding: 6px; 
+    padding: 10px 0;
+    transform: translate(-10px, -10px);
+    width: 100%;
+    border-radius: 50%;
+    height: 100%;
+    background: red;
+}
+
+
+
+.button{
+    width: 46px;
+    height: 46px;
+    margin: 6px;
+    background-image: url(/icons/baseline-sort-24px.svg);
+    background-color: whitesmoke;
+    background-size: 24px;
+    border-width: 1px;
+    outline: none;
+    border: none;
+    position: fixed;
+    box-shadow: 0 2px 12px black;
+    z-index: 3;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.button:active{
+    background-color: rgb(235, 235, 235);
+}
+
+div#master{
+    height: calc(100vh - 50px);
+    background-image: url(/wallpaper.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: filter 300ms ease-in;
+}
+
+#master.blur{
+    filter: blur(8px);
+}
+
+
+div#advertisments{
+    display: flex;
+    --offset: 0px;
+    justify-content: flex-end;
+    padding: 40px calc(294px + var(--offset, 0)) 140px 40px;
+    margin-left: 25px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    direction: rtl;
+    height: 100%;
+    overflow-y: scroll;
+    box-sizing: border-box;
+}
+
+div#advertisments::-webkit-scrollbar {
+    width: 13px;
+    background: transparent;
+}
+
+div#advertisments::-webkit-scrollbar-thumb{
+    background: yellow;
+    border-radius: 6px;
+}
+
+div#advertisments::-webkit-scrollbar-track-piece {
+    margin: 20%;
+    border-radius: 6px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.6);
+} 
+
+
+.dope::before {
+    display: block;
+    content: "Brak ogłoszeń";
+    position: absolute;
+    font-size: 34px;
+    opacity: .30;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-weight: bold;
+    top: 50%;
+    /* mix-blend-mode: ; */
+}
+
+#master.fade{
+    filter: brightness(0.7);
+}
+
+detail {
+    --height: 50px;
+}
+
+detail top-bar-template {
+    display: grid; 
+    height: var(--height);
+    grid-template-columns: min-content min-content 1fr;
+    grid-gap: 0 4px;
+    padding: 0 10px;
+    /* margin: 0 10px; */
+}
+
+detail top-bar-template > button{
+    background: no-repeat 50% 50%;
+    width: 32px;
+    background-size: 36px;
+    /* height: 32px; */
+    border: none;
+}
+
+detail top-bar-template > button:nth-child(1){
+    border-left: none;
+    background-image: url(/icons/arrow_left-24px.svg);
+}
+
+detail top-bar-template > button:nth-child(2){
+    visibility: hidden;
+    background-image: url(/icons/baseline-clear-24px.svg);
+}
+
+detail top-bar-template > button:nth-child(3){
+    background-image: url(/icons/arrow-right.svg);
+}
+
+
+
+@media screen and (max-width: 650px){
+    detail {
+        max-width: unset !important;
+        width: 100% !important;
+        background: rgba(240, 240, 240, 1);
+    }
+    detail top-bar-template > button:nth-child(2){
+        visibility: visible;
+    }
+}

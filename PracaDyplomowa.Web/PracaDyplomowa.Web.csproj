@@ -1,0 +1,547 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{08B91424-5E57-466F-B727-7E0D714C9284}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PracaDyplomowa.Web</RootNamespace>
+    <AssemblyName>PracaDyplomowa.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>3.0</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="angular-locale_pl-pl.js" />
+    <Content Include="app.js" />
+    <Content Include="homePage\homePage.css" />
+    <Content Include="homePage\homePage.html" />
+    <Content Include="homePage\homepageComponent.js" />
+    <Content Include="homePage\homePageModule.js" />
+    <Content Include="homePage\listView\listView.css" />
+    <Content Include="homePage\listView\listView.html" />
+    <Content Include="homePage\listView\listView.js" />
+    <Content Include="homePage\mainController.js" />
+    <Content Include="homePage\searchbar\searchbar.css" />
+    <Content Include="homePage\searchbar\searchbar.html" />
+    <Content Include="homePage\searchbar\searchbar.js" />
+    <Content Include="icons\account.svg" />
+    <Content Include="icons\add-ad.svg" />
+    <Content Include="icons\add.svg" />
+    <Content Include="icons\arrow-right.svg" />
+    <Content Include="icons\arrow_left-24px.svg" />
+    <Content Include="icons\baseline-check_circle_outline-24px.svg" />
+    <Content Include="icons\baseline-clear-24px.svg" />
+    <Content Include="icons\baseline-collections-24px.svg" />
+    <Content Include="icons\baseline-delete-24px.svg" />
+    <Content Include="icons\baseline-done-24px.svg" />
+    <Content Include="icons\baseline-drag_indicator-24px.svg" />
+    <Content Include="icons\baseline-edit-24px.svg" />
+    <Content Include="icons\baseline-filter_list-24px.svg" />
+    <Content Include="icons\baseline-photo-24px.svg" />
+    <Content Include="icons\baseline-restore-24px.svg" />
+    <Content Include="icons\baseline-sort-24px.svg" />
+    <Content Include="icons\checkbox.svg" />
+    <Content Include="icons\error.svg" />
+    <Content Include="icons\eye.svg" />
+    <Content Include="icons\hamburger.svg" />
+    <Content Include="icons\lock.svg" />
+    <Content Include="icons\logout.svg" />
+    <Content Include="icons\search.svg" />
+    <Content Include="icons\smartphone.svg" />
+    <Content Include="icons\swap_vert-24px.svg" />
+    <Content Include="icons\three-dots.svg" />
+    <Content Include="index.css" />
+    <Content Include="index.html" />
+    <Content Include="manageAccount\confirm\confirm.css" />
+    <Content Include="manageAccount\confirm\confirm.html" />
+    <Content Include="manageAccount\confirm\confirmController.js" />
+    <Content Include="manageAccount\manageAccount.css" />
+    <Content Include="manageAccount\manageAccount.html" />
+    <Content Include="manageAccount\manageAccountController.js" />
+    <Content Include="manageAccount\manageAccountModule.js" />
+    <Content Include="manageAdvertisments\advertPreview\advertPreview.css" />
+    <Content Include="manageAdvertisments\advertPreview\advertPreview.html" />
+    <Content Include="manageAdvertisments\advertPreview\advertPreviewDelete.html" />
+    <Content Include="manageAdvertisments\advertPreview\advertPreviewEdit.html" />
+    <Content Include="manageAdvertisments\advertPreview\advertPreviewEmpty.html" />
+    <Content Include="manageAdvertisments\advertPreview\advertPreviewLayout.html" />
+    <Content Include="manageAdvertisments\advertPreview\advertPreviewLayout.js" />
+    <Content Include="manageAdvertisments\components\advertismentForm\advertismentForm.html" />
+    <Content Include="manageAdvertisments\components\advertismentForm\advertismentForm.js" />
+    <Content Include="manageAdvertisments\components\fileSelector\fileSelector.css" />
+    <Content Include="manageAdvertisments\components\fileSelector\fileSelector.js" />
+    <Content Include="manageAdvertisments\components\index.css" />
+    <Content Include="manageAdvertisments\directives\dynamicField\dynamicField.js" />
+    <Content Include="manageAdvertisments\form.js" />
+    <Content Include="manageAdvertisments\list\list.css" />
+    <Content Include="manageAdvertisments\list\list.html" />
+    <Content Include="manageAdvertisments\list\list.js" />
+    <Content Include="manageAdvertisments\manageAdvertisments.css" />
+    <Content Include="manageAdvertisments\manageAdvertisments.html" />
+    <Content Include="manageAdvertisments\manageAdvertismentsController.js" />
+    <Content Include="manageAdvertisments\manageAdvertismentsModule.js" />
+    <Content Include="manageAdvertisments\toDeleteFilter.js" />
+    <Content Include="navbar.css" />
+    <Content Include="node_modules\angular-animate\angular-animate.js" />
+    <Content Include="node_modules\angular-animate\angular-animate.min.js" />
+    <Content Include="node_modules\angular-animate\index.js" />
+    <Content Include="node_modules\angular-local-storage\.gitattributes" />
+    <Content Include="node_modules\angular-local-storage\demo\demo-app.js" />
+    <Content Include="node_modules\angular-local-storage\demo\demo-style.css" />
+    <Content Include="node_modules\angular-local-storage\demo\demo.html" />
+    <Content Include="node_modules\angular-local-storage\dist\angular-local-storage.js" />
+    <Content Include="node_modules\angular-local-storage\dist\angular-local-storage.min.js" />
+    <Content Include="node_modules\angular-local-storage\Gruntfile.js" />
+    <Content Include="node_modules\angular-local-storage\index.js" />
+    <Content Include="node_modules\angular-local-storage\src\angular-local-storage.js" />
+    <Content Include="node_modules\angular-local-storage\test\karma.conf.js" />
+    <Content Include="node_modules\angular-local-storage\test\mock\localStorageMock.js" />
+    <Content Include="node_modules\angular-local-storage\test\spec\localStorageSpec.js" />
+    <Content Include="node_modules\angular-md5\angular-md5.js" />
+    <Content Include="node_modules\angular-md5\angular-md5.min.js" />
+    <Content Include="node_modules\angular-md5\example\index.html" />
+    <Content Include="node_modules\angular-md5\Gruntfile.js" />
+    <Content Include="node_modules\angular-md5\lib\filters\gravatar.js" />
+    <Content Include="node_modules\angular-md5\lib\filters\md5.js" />
+    <Content Include="node_modules\angular-md5\lib\index.js" />
+    <Content Include="node_modules\angular-md5\lib\services\md5.js" />
+    <Content Include="node_modules\angular-md5\test\angular-md5_test.js" />
+    <Content Include="node_modules\angular-messages\angular-messages.js" />
+    <Content Include="node_modules\angular-messages\angular-messages.min.js" />
+    <Content Include="node_modules\angular-messages\index.js" />
+    <Content Include="node_modules\angular-route\angular-route.js" />
+    <Content Include="node_modules\angular-route\angular-route.min.js" />
+    <Content Include="node_modules\angular-route\index.js" />
+    <Content Include="node_modules\angular-sanitize\angular-sanitize.js" />
+    <Content Include="node_modules\angular-sanitize\angular-sanitize.min.js" />
+    <Content Include="node_modules\angular-sanitize\index.js" />
+    <Content Include="node_modules\angular-touch\angular-touch.js" />
+    <Content Include="node_modules\angular-touch\angular-touch.min.js" />
+    <Content Include="node_modules\angular-touch\index.js" />
+    <Content Include="node_modules\angular\angular-csp.css" />
+    <Content Include="node_modules\angular\angular.js" />
+    <Content Include="node_modules\angular\angular.min.js" />
+    <Content Include="node_modules\angular\index.js" />
+    <Content Include="node_modules\jquery\AUTHORS.txt" />
+    <Content Include="node_modules\jquery\dist\core.js" />
+    <Content Include="node_modules\jquery\dist\jquery.js" />
+    <Content Include="node_modules\jquery\dist\jquery.min.js" />
+    <Content Include="node_modules\jquery\dist\jquery.slim.js" />
+    <Content Include="node_modules\jquery\dist\jquery.slim.min.js" />
+    <Content Include="node_modules\jquery\external\sizzle\dist\sizzle.js" />
+    <Content Include="node_modules\jquery\external\sizzle\dist\sizzle.min.js" />
+    <Content Include="node_modules\jquery\external\sizzle\LICENSE.txt" />
+    <Content Include="node_modules\jquery\LICENSE.txt" />
+    <Content Include="node_modules\jquery\src\ajax.js" />
+    <Content Include="node_modules\jquery\src\ajax\jsonp.js" />
+    <Content Include="node_modules\jquery\src\ajax\load.js" />
+    <Content Include="node_modules\jquery\src\ajax\parseXML.js" />
+    <Content Include="node_modules\jquery\src\ajax\script.js" />
+    <Content Include="node_modules\jquery\src\ajax\var\location.js" />
+    <Content Include="node_modules\jquery\src\ajax\var\nonce.js" />
+    <Content Include="node_modules\jquery\src\ajax\var\rquery.js" />
+    <Content Include="node_modules\jquery\src\ajax\xhr.js" />
+    <Content Include="node_modules\jquery\src\attributes.js" />
+    <Content Include="node_modules\jquery\src\attributes\attr.js" />
+    <Content Include="node_modules\jquery\src\attributes\classes.js" />
+    <Content Include="node_modules\jquery\src\attributes\prop.js" />
+    <Content Include="node_modules\jquery\src\attributes\support.js" />
+    <Content Include="node_modules\jquery\src\attributes\val.js" />
+    <Content Include="node_modules\jquery\src\callbacks.js" />
+    <Content Include="node_modules\jquery\src\core.js" />
+    <Content Include="node_modules\jquery\src\core\access.js" />
+    <Content Include="node_modules\jquery\src\core\camelCase.js" />
+    <Content Include="node_modules\jquery\src\core\DOMEval.js" />
+    <Content Include="node_modules\jquery\src\core\init.js" />
+    <Content Include="node_modules\jquery\src\core\nodeName.js" />
+    <Content Include="node_modules\jquery\src\core\parseHTML.js" />
+    <Content Include="node_modules\jquery\src\core\ready-no-deferred.js" />
+    <Content Include="node_modules\jquery\src\core\ready.js" />
+    <Content Include="node_modules\jquery\src\core\readyException.js" />
+    <Content Include="node_modules\jquery\src\core\stripAndCollapse.js" />
+    <Content Include="node_modules\jquery\src\core\support.js" />
+    <Content Include="node_modules\jquery\src\core\toType.js" />
+    <Content Include="node_modules\jquery\src\core\var\rsingleTag.js" />
+    <Content Include="node_modules\jquery\src\css.js" />
+    <Content Include="node_modules\jquery\src\css\addGetHookIf.js" />
+    <Content Include="node_modules\jquery\src\css\adjustCSS.js" />
+    <Content Include="node_modules\jquery\src\css\curCSS.js" />
+    <Content Include="node_modules\jquery\src\css\hiddenVisibleSelectors.js" />
+    <Content Include="node_modules\jquery\src\css\showHide.js" />
+    <Content Include="node_modules\jquery\src\css\support.js" />
+    <Content Include="node_modules\jquery\src\css\var\cssExpand.js" />
+    <Content Include="node_modules\jquery\src\css\var\getStyles.js" />
+    <Content Include="node_modules\jquery\src\css\var\isHiddenWithinTree.js" />
+    <Content Include="node_modules\jquery\src\css\var\rboxStyle.js" />
+    <Content Include="node_modules\jquery\src\css\var\rnumnonpx.js" />
+    <Content Include="node_modules\jquery\src\css\var\swap.js" />
+    <Content Include="node_modules\jquery\src\data.js" />
+    <Content Include="node_modules\jquery\src\data\Data.js" />
+    <Content Include="node_modules\jquery\src\data\var\acceptData.js" />
+    <Content Include="node_modules\jquery\src\data\var\dataPriv.js" />
+    <Content Include="node_modules\jquery\src\data\var\dataUser.js" />
+    <Content Include="node_modules\jquery\src\deferred.js" />
+    <Content Include="node_modules\jquery\src\deferred\exceptionHook.js" />
+    <Content Include="node_modules\jquery\src\deprecated.js" />
+    <Content Include="node_modules\jquery\src\dimensions.js" />
+    <Content Include="node_modules\jquery\src\effects.js" />
+    <Content Include="node_modules\jquery\src\effects\animatedSelector.js" />
+    <Content Include="node_modules\jquery\src\effects\Tween.js" />
+    <Content Include="node_modules\jquery\src\event.js" />
+    <Content Include="node_modules\jquery\src\event\ajax.js" />
+    <Content Include="node_modules\jquery\src\event\alias.js" />
+    <Content Include="node_modules\jquery\src\event\focusin.js" />
+    <Content Include="node_modules\jquery\src\event\support.js" />
+    <Content Include="node_modules\jquery\src\event\trigger.js" />
+    <Content Include="node_modules\jquery\src\exports\amd.js" />
+    <Content Include="node_modules\jquery\src\exports\global.js" />
+    <Content Include="node_modules\jquery\src\jquery.js" />
+    <Content Include="node_modules\jquery\src\manipulation.js" />
+    <Content Include="node_modules\jquery\src\manipulation\buildFragment.js" />
+    <Content Include="node_modules\jquery\src\manipulation\getAll.js" />
+    <Content Include="node_modules\jquery\src\manipulation\setGlobalEval.js" />
+    <Content Include="node_modules\jquery\src\manipulation\support.js" />
+    <Content Include="node_modules\jquery\src\manipulation\var\rcheckableType.js" />
+    <Content Include="node_modules\jquery\src\manipulation\var\rscriptType.js" />
+    <Content Include="node_modules\jquery\src\manipulation\var\rtagName.js" />
+    <Content Include="node_modules\jquery\src\manipulation\wrapMap.js" />
+    <Content Include="node_modules\jquery\src\manipulation\_evalUrl.js" />
+    <Content Include="node_modules\jquery\src\offset.js" />
+    <Content Include="node_modules\jquery\src\queue.js" />
+    <Content Include="node_modules\jquery\src\queue\delay.js" />
+    <Content Include="node_modules\jquery\src\selector-native.js" />
+    <Content Include="node_modules\jquery\src\selector-sizzle.js" />
+    <Content Include="node_modules\jquery\src\selector.js" />
+    <Content Include="node_modules\jquery\src\serialize.js" />
+    <Content Include="node_modules\jquery\src\traversing.js" />
+    <Content Include="node_modules\jquery\src\traversing\findFilter.js" />
+    <Content Include="node_modules\jquery\src\traversing\var\dir.js" />
+    <Content Include="node_modules\jquery\src\traversing\var\rneedsContext.js" />
+    <Content Include="node_modules\jquery\src\traversing\var\siblings.js" />
+    <Content Include="node_modules\jquery\src\var\arr.js" />
+    <Content Include="node_modules\jquery\src\var\class2type.js" />
+    <Content Include="node_modules\jquery\src\var\concat.js" />
+    <Content Include="node_modules\jquery\src\var\document.js" />
+    <Content Include="node_modules\jquery\src\var\documentElement.js" />
+    <Content Include="node_modules\jquery\src\var\fnToString.js" />
+    <Content Include="node_modules\jquery\src\var\getProto.js" />
+    <Content Include="node_modules\jquery\src\var\hasOwn.js" />
+    <Content Include="node_modules\jquery\src\var\indexOf.js" />
+    <Content Include="node_modules\jquery\src\var\isFunction.js" />
+    <Content Include="node_modules\jquery\src\var\isWindow.js" />
+    <Content Include="node_modules\jquery\src\var\ObjectFunctionString.js" />
+    <Content Include="node_modules\jquery\src\var\pnum.js" />
+    <Content Include="node_modules\jquery\src\var\push.js" />
+    <Content Include="node_modules\jquery\src\var\rcssNum.js" />
+    <Content Include="node_modules\jquery\src\var\rnothtmlwhite.js" />
+    <Content Include="node_modules\jquery\src\var\slice.js" />
+    <Content Include="node_modules\jquery\src\var\support.js" />
+    <Content Include="node_modules\jquery\src\var\toString.js" />
+    <Content Include="node_modules\jquery\src\wrap.js" />
+    <Content Include="node_modules\parse-bearer-token\dist\index.js" />
+    <Content Include="node_modules\parse-bearer-token\dist\test.js" />
+    <Content Include="node_modules\signalr\jquery.signalR.js" />
+    <Content Include="node_modules\signalr\jquery.signalR.min.js" />
+    <Content Include="ogloszenia\components\acordeon\acordeon.css" />
+    <Content Include="ogloszenia\components\acordeon\acordeon.html" />
+    <Content Include="ogloszenia\components\acordeon\acordeon.js" />
+    <Content Include="ogloszenia\components\card\card.css" />
+    <Content Include="ogloszenia\components\card\card.html" />
+    <Content Include="ogloszenia\components\card\card.js" />
+    <Content Include="ogloszenia\components\detail\detail.css" />
+    <Content Include="ogloszenia\components\detail\detail.html" />
+    <Content Include="ogloszenia\components\detail\detail.js" />
+    <Content Include="ogloszenia\components\expandable\expandable.css" />
+    <Content Include="ogloszenia\components\expandable\expandable.js" />
+    <Content Include="ogloszenia\components\filterItem\filterDate\filterDate.css" />
+    <Content Include="ogloszenia\components\filterItem\filterDate\filterDate.html" />
+    <Content Include="ogloszenia\components\filterItem\filterItem.js" />
+    <Content Include="ogloszenia\components\filterItem\filterList\filterList.css" />
+    <Content Include="ogloszenia\components\filterItem\filterList\filterList.html" />
+    <Content Include="ogloszenia\components\filterItem\filterList\filterList.js" />
+    <Content Include="ogloszenia\components\filterItem\filterRange\filterRange.css" />
+    <Content Include="ogloszenia\components\filterItem\filterRange\filterRange.html" />
+    <Content Include="ogloszenia\components\filterItem\filterRange\filterRange.js" />
+    <Content Include="ogloszenia\components\filterItem\index.css" />
+    <Content Include="ogloszenia\components\filtersPanel\filtersPanel.css" />
+    <Content Include="ogloszenia\components\filtersPanel\filtersPanel.html" />
+    <Content Include="ogloszenia\components\filtersPanel\filtersPanel.js" />
+    <Content Include="ogloszenia\components\gallery\animations.css" />
+    <Content Include="ogloszenia\components\gallery\gallery.css" />
+    <Content Include="ogloszenia\components\gallery\gallery.html" />
+    <Content Include="ogloszenia\components\gallery\gallery.js" />
+    <Content Include="ogloszenia\components\index.js" />
+    <Content Include="ogloszenia\ogloszenia.css" />
+    <Content Include="ogloszenia\ogloszenia.html" />
+    <Content Include="ogloszenia\ogloszenia.js" />
+    <Content Include="ogloszenia\ogloszeniaModule.js" />
+    <Content Include="ogloszenia\pagesBar\pagesBar.css" />
+    <Content Include="ogloszenia\pagesBar\pagesBar.html" />
+    <Content Include="ogloszenia\pagesBar\pagesBar.js" />
+    <Content Include="picture.jpg" />
+    <Content Include="routing.js" />
+    <Content Include="shared\components\customInput\customInput.html" />
+    <Content Include="shared\components\customInput\customInput.js" />
+    <Content Include="shared\components\draggable\draggable.css" />
+    <Content Include="shared\components\draggable\draggable.js" />
+    <Content Include="shared\components\error-message\error-message.css" />
+    <Content Include="shared\components\error-message\error-message.html" />
+    <Content Include="shared\components\error-message\error-message.js" />
+    <Content Include="shared\components\forms\login\login.html" />
+    <Content Include="shared\components\forms\login\login.js" />
+    <Content Include="shared\components\forms\register\register.css" />
+    <Content Include="shared\components\forms\register\register.html" />
+    <Content Include="shared\components\forms\register\register.js" />
+    <Content Include="shared\components\index.css" />
+    <Content Include="shared\components\index.js" />
+    <Content Include="shared\components\password\password.css" />
+    <Content Include="shared\components\password\password.html" />
+    <Content Include="shared\components\password\password.js" />
+    <Content Include="shared\components\searchbox\searchbox.css" />
+    <Content Include="shared\components\searchbox\searchbox.html" />
+    <Content Include="shared\components\searchbox\searchbox.js" />
+    <Content Include="shared\components\server-response\server-response.css" />
+    <Content Include="shared\components\server-response\server-response.js" />
+    <Content Include="shared\components\tabItem\tabItem.css" />
+    <Content Include="shared\components\tabItem\tabItem.html" />
+    <Content Include="shared\components\tabItem\tabItem.js" />
+    <Content Include="shared\components\tabs\tabs.css" />
+    <Content Include="shared\components\tabs\tabs.html" />
+    <Content Include="shared\components\tabs\tabs.js" />
+    <Content Include="shared\components\userProfile\userProfile.css" />
+    <Content Include="shared\components\userProfile\userProfile.html" />
+    <Content Include="shared\components\userProfile\userProfile.js" />
+    <Content Include="shared\css\modal.css" />
+    <Content Include="shared\css\ngFade.css" />
+    <Content Include="shared\directives\index.js" />
+    <Content Include="shared\directives\ngResizable\ngResizable.css" />
+    <Content Include="shared\directives\ngResizable\ngResizable.js" />
+    <Content Include="shared\directives\overflow\overflow.css" />
+    <Content Include="shared\directives\overflow\overflow.js" />
+    <Content Include="shared\filters\advertismentsFilter.js" />
+    <Content Include="shared\filters\index.js" />
+    <Content Include="shared\filters\phoneFilter.js" />
+    <Content Include="shared\login\login.css" />
+    <Content Include="shared\login\login.html" />
+    <Content Include="shared\login\loginController.js" />
+    <Content Include="shared\providers\advertismentsProvider.js" />
+    <Content Include="shared\providers\authorizationProvider.js" />
+    <Content Include="shared\providers\citiesProvider.js" />
+    <Content Include="shared\providers\index.js" />
+    <Content Include="shared\providers\userProvider.js" />
+    <Content Include="shared\services\authInterceptorService.js" />
+    <Content Include="shared\services\cityService.js" />
+    <Content Include="shared\services\index.js" />
+    <Content Include="shared\shared.css" />
+    <Content Include="shared\sharedModule.js" />
+    <Content Include="wallpaper.jpg" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="homePage\listView\listView.css.map" />
+    <Content Include="homePage\listView\listView.sass" />
+    <Content Include="homePage\searchbar\searchbar.css.map" />
+    <Content Include="homePage\searchbar\searchbar.sass" />
+    <Content Include="foo.webp" />
+    <Content Include="manageAccount\confirm\confirm.css.map" />
+    <Content Include="manageAccount\confirm\confirm.sass" />
+    <Content Include="manageAdvertisments\components\fileSelector\fileSelector.css.map" />
+    <Content Include="manageAdvertisments\components\fileSelector\fileSelector.sass" />
+    <Content Include="manageAdvertisments\list\list.css.map" />
+    <Content Include="manageAdvertisments\list\list.sass" />
+    <Content Include="manageAdvertisments\list\_animation.sass" />
+    <Content Include="manageAdvertisments\manageAdvertisments.css.map" />
+    <Content Include="manageAdvertisments\manageAdvertisments.sass" />
+    <Content Include="manageAdvertisments\_fields.sass" />
+    <Content Include="manageAdvertisments\_gallery.sass" />
+    <Content Include="navbar.css.map" />
+    <Content Include="navbar.sass" />
+    <Content Include="node_modules\angular-animate\angular-animate.min.js.map" />
+    <Content Include="node_modules\angular-animate\bower.json" />
+    <Content Include="node_modules\angular-animate\LICENSE.md" />
+    <Content Include="node_modules\angular-animate\package.json" />
+    <Content Include="node_modules\angular-animate\README.md" />
+    <Content Include="node_modules\angular-local-storage\.bowerrc" />
+    <Content Include="node_modules\angular-local-storage\.editorconfig" />
+    <Content Include="node_modules\angular-local-storage\.npmignore" />
+    <Content Include="node_modules\angular-local-storage\.travis.yml" />
+    <Content Include="node_modules\angular-local-storage\bower.json" />
+    <Content Include="node_modules\angular-local-storage\CHANGELOG.md" />
+    <Content Include="node_modules\angular-local-storage\dist\angular-local-storage.min.js.map" />
+    <Content Include="node_modules\angular-local-storage\LICENSE" />
+    <Content Include="node_modules\angular-local-storage\package.json" />
+    <Content Include="node_modules\angular-local-storage\README.md" />
+    <Content Include="node_modules\angular-local-storage\test\.jshintrc" />
+    <Content Include="node_modules\angular-md5\.jshintrc" />
+    <Content Include="node_modules\angular-md5\.npmignore" />
+    <Content Include="node_modules\angular-md5\.travis.yml" />
+    <Content Include="node_modules\angular-md5\angular-md5.min.js.map" />
+    <Content Include="node_modules\angular-md5\bower.json" />
+    <Content Include="node_modules\angular-md5\LICENSE" />
+    <Content Include="node_modules\angular-md5\package.json" />
+    <Content Include="node_modules\angular-md5\README.md" />
+    <Content Include="node_modules\angular-messages\angular-messages.min.js.map" />
+    <Content Include="node_modules\angular-messages\bower.json" />
+    <Content Include="node_modules\angular-messages\LICENSE.md" />
+    <Content Include="node_modules\angular-messages\package.json" />
+    <Content Include="node_modules\angular-messages\README.md" />
+    <Content Include="node_modules\angular-route\angular-route.min.js.map" />
+    <Content Include="node_modules\angular-route\bower.json" />
+    <Content Include="node_modules\angular-route\LICENSE.md" />
+    <Content Include="node_modules\angular-route\package.json" />
+    <Content Include="node_modules\angular-route\README.md" />
+    <Content Include="node_modules\angular-sanitize\angular-sanitize.min.js.map" />
+    <Content Include="node_modules\angular-sanitize\bower.json" />
+    <Content Include="node_modules\angular-sanitize\LICENSE.md" />
+    <Content Include="node_modules\angular-sanitize\package.json" />
+    <Content Include="node_modules\angular-sanitize\README.md" />
+    <Content Include="node_modules\angular-touch\angular-touch.min.js.map" />
+    <Content Include="node_modules\angular-touch\bower.json" />
+    <Content Include="node_modules\angular-touch\LICENSE.md" />
+    <Content Include="node_modules\angular-touch\package.json" />
+    <Content Include="node_modules\angular-touch\README.md" />
+    <Content Include="node_modules\angular\angular.min.js.gzip" />
+    <Content Include="node_modules\angular\angular.min.js.map" />
+    <Content Include="node_modules\angular\bower.json" />
+    <Content Include="node_modules\angular\LICENSE.md" />
+    <Content Include="node_modules\angular\package.json" />
+    <Content Include="node_modules\angular\README.md" />
+    <Content Include="node_modules\jquery\bower.json" />
+    <Content Include="node_modules\jquery\dist\jquery.min.map" />
+    <Content Include="node_modules\jquery\dist\jquery.slim.min.map" />
+    <Content Include="node_modules\jquery\external\sizzle\dist\sizzle.min.map" />
+    <Content Include="node_modules\jquery\package.json" />
+    <Content Include="node_modules\jquery\README.md" />
+    <Content Include="node_modules\jquery\src\.eslintrc.json" />
+    <Content Include="node_modules\parse-bearer-token\.circleci\config.yml" />
+    <Content Include="node_modules\parse-bearer-token\HISTORY.md" />
+    <Content Include="node_modules\parse-bearer-token\package.json" />
+    <Content Include="node_modules\parse-bearer-token\README.md" />
+    <Content Include="node_modules\parse-bearer-token\tsconfig.json" />
+    <Content Include="node_modules\parse-bearer-token\tslint.json" />
+    <Content Include="node_modules\signalr\LICENSE.md" />
+    <Content Include="node_modules\signalr\package.json" />
+    <Content Include="node_modules\signalr\README.md" />
+    <Content Include="ogloszenia\components\filterItem\filterRange\filterRange.css.map" />
+    <Content Include="ogloszenia\components\filterItem\filterRange\filterRange.sass" />
+    <Content Include="package-lock.json" />
+    <None Include="packages.config" />
+    <Content Include="shared\components\tabs\tabs.css.map" />
+    <Content Include="shared\components\tabs\tabs.sass" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="node_modules\parse-bearer-token\dist\index.d.ts" />
+    <TypeScriptCompile Include="node_modules\parse-bearer-token\dist\test.d.ts" />
+    <TypeScriptCompile Include="node_modules\parse-bearer-token\src\index.ts" />
+    <TypeScriptCompile Include="node_modules\parse-bearer-token\src\test.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53216</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:58594/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

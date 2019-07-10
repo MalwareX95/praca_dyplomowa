@@ -1,0 +1,4 @@
+<label>
+    <input type="radio" value="{{$ctrl.text}}" ng-model="$parent.$parent.$ctrl.option" ng-change="$emit('update', [$ctrl.$element])">
+    <span ng-bind="$ctrl.text"></span>
+</label>

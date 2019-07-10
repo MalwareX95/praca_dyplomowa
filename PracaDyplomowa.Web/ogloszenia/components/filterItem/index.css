@@ -1,0 +1,8 @@
+@import "./filterList/filterList.css";
+@import "./filterRange/filterRange.css";
+@import "./filterDate/filterDate.css";
+
+filter-item > div[ng-include] {
+    display: flex;
+    flex-direction: column;
+}

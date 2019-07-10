@@ -1,0 +1,9 @@
+<ul>
+    <li ng-repeat="item in $ctrl.items | limitTo:$ctrl.count" 
+        ng-click="$ctrl.selectedIndex = $index"
+        ng-transclude></li>
+    <div style="height: 1px;"
+         ng-intersection-observer="$ctrl.count = $ctrl.count + 6"
+         ng-intersection-observer-options="$ctrl.options"></div>
+</ul>
+

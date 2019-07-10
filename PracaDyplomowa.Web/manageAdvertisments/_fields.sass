@@ -1,0 +1,86 @@
+%compact
+    left: 0 !important
+    font-size: var(--font-size-up)
+    transform: scale(0.4) !important
+    
+manage-advertisments form 
+
+    &.ng-submitted #basic-info *.ng-invalid + div
+        @extend %compact
+        > span
+            display: initial !important
+
+    #basic-info
+        display: grid
+        justify-content: center
+        grid-gap: 16px
+        grid-template-columns: repeat(auto-fill, 300px)              
+        > div
+            display: flex
+            $margin: 10px
+            > label
+                &:nth-child(1)
+                    margin-right: $margin
+                &:nth-child(2)
+                    margin-left: $margin
+        label
+            display: inline-flex
+            height: 44px
+            color: rgb(100, 100, 100)
+            --font-size: 18px
+            --font-size-up: 30px
+            position: relative
+            
+            *.ng-invalid.ng-touched
+                border-bottom-color: red !important
+
+            > *.ng-untouched + div > span 
+                display: none
+
+            > *:focus + div, .stay-up
+                @extend %compact
+
+            *:focus 
+                border-bottom-color: rgb(88, 151, 254) !important
+                color: black
+
+            input, select
+                outline: none
+                width: 100%
+                text-align: center
+                font-size: var(--font-size)
+                background: transparent
+                align-self: flex-end
+                border: none
+                color: rgba(0, 0, 0, 0.5) 
+                border-bottom: 1px solid rgb(240, 240, 240) 
+
+            > div
+                position: absolute
+                display: flex
+                opacity: .50
+                pointer-events: none
+                font-size: 26px
+                box-sizing: border-box
+                padding-bottom: 3px
+                align-items: flex-end
+                left: 50%
+                font-size: var(--font-size) 
+                transform: translateX(-50%)
+                height: 100%
+                transform-origin: 0 0
+                transition: all 200ms ease-out !important
+                > span:nth-of-type(2)
+                    color: red
+                    font-weight: 600
+                    margin-left: 4px
+                    &.ng-enter 
+                        transition: 700ms
+                        opacity: 0
+                        &.ng-enter-active
+                            opacity: 1
+
+
+
+
+

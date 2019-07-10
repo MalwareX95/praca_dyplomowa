@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,aAAa,CAAC;EACV,OAAO,EAAE,YAAY;EACrB,SAAS,EAJN,IAAI;EAKP,SAAS,EALN,IAAI;EAMP,MAAM,EAAE,OAAO;EACf,MAAM,EAAE,GAAG,CAAC,KAAK,CAAC,OAAkB;EACpC,UAAU,EAAE,sBAAsB,CAAC,SAAS,CAAC,GAAG;EAChD,eAAe,EAAE,GAAG;CAEE;;AAT1B,AAQI,aARS,CAQT,KAAK,CAAC;EACF,OAAO,EAAE,IAAI;CAAG",
+    "sources": [
+        "fileSelector.sass"
+    ],
+    "names": [],
+    "file": "fileSelector.css"
+}

@@ -1,0 +1,155 @@
+filter-panel {
+    position: fixed;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    grid-auto-rows: min-content;
+    flex-flow: column;
+    background: rgb(240, 240, 240);
+    width: 260px;
+    top: 50px;
+    transform: translateX(-100%);
+    transition: transform 200ms ease-in-out;
+    left: 0;
+    bottom: 0;}
+    filter-panel select {
+       background: rgb(243, 243, 243); 
+       box-shadow: 0 1px 8px -3px black;
+       border: none;
+       display: flex;
+       width: calc(100% - 8px);
+       height: 30px;
+       margin: 4px;
+       outline: none;
+       cursor: pointer;
+       color: #A69696;
+    }
+
+    filter-panel > div{
+        overflow-y: scroll;
+        box-sizing: content-box;
+        grid-column: span 2;
+
+    }
+
+    filter-panel > div::-webkit-scrollbar{
+        width: 12px;
+    }
+
+    filter-panel > div::-webkit-scrollbar{
+        background: rgb(240, 240, 240);
+        border: 3px solid transparent;
+        background-clip: padding-box;
+    }
+
+    filter-panel > div::-webkit-scrollbar-thumb{
+        /* background: rgb(92, 92, 92); */
+        background: rgb(144, 144, 144);
+        border: 3px solid transparent;
+        background-clip: padding-box;
+    }
+
+
+    filter-panel > div::-webkit-scrollbar-thumb:
+
+
+    filter-panel option {
+        color: black;
+        border: 3px solid red;
+       
+    }
+    filter-panel option:disabled{
+        color:rgb(129, 129, 129);
+    }
+    
+    filter-panel > button:nth-of-type(n + 3) {
+        display: flex;
+        transition: 200ms;
+        padding: 0;
+        margin: 0 2px;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+        border-width: 2px;
+        border-style: outset;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+        align-items: center;
+        outline: none;
+        background: transparent;
+        box-sizing: content-box;
+        height: 34px;}
+        filter-panel > button:nth-of-type(n + 3):active{
+            border-style: inset;
+        }
+
+
+    filter-panel > button:nth-of-type(1){
+        background-image: url("/icons/baseline-clear-24px.svg");
+        background-color: transparent;
+        border: none;
+        opacity: .5;
+        margin-right: 2px;
+        outline: none;
+        /* border: 2px solid rgb(224, 224, 224); */
+        background-position: 50% 50%;
+        border-radius: 4px;
+        transition: 200ms;
+        background-size: 30px 30px;
+        cursor: pointer;
+    }
+
+    filter-panel > button:nth-of-type(1):hover{
+        opacity: 1;
+    }
+
+    filter-panel > button:nth-of-type(3){
+        border-color:  rgba(172, 199, 172, 0.30);
+        background: rgb(133, 195, 133);
+        /* text-align: center; */
+        
+        /* background: rgb(177, 209, 177); */
+        /* color: rgb(84, 128, 84); */
+        color: rgb(235, 255, 235);
+        }
+        filter-panel > button:nth-of-type(3):hover{
+            background: hsl(120, 34%, 69%);
+        }
+
+    filter-panel > button:nth-of-type(4){
+        border-color: rgba(168, 128, 109, 0.3);
+        background: rgb(190, 91, 52);
+        /* background: rgb(216, 106, 62); */
+        color: white;}
+        filter-panel > button:nth-of-type(4):hover{
+            background: hsl(17, 57%, 52%)
+        }
+
+    filter-panel > button:nth-of-type(n + 3)::before{
+        display: block;
+        content: "";
+        width: 30px;
+        height: inherit;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+    }
+    filter-panel > button:nth-of-type(3)::before{
+        background-image: url(/icons/baseline-done-24px.svg);
+    }
+    filter-panel > button:nth-of-type(4)::before{
+        background-image: url(/icons/baseline-restore-24px.svg);
+    }
+    filter-panel > span:nth-last-child(3){
+        color: rgb(221, 195, 195);
+        font-size: 1.1em;
+        margin: 4px 0;
+        color: #A69696;
+        text-align: center;
+    }
+
+
+filter-panel.open{
+    transform: translateX(0);
+}
+
+

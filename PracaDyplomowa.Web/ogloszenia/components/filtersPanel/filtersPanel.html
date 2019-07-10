@@ -1,0 +1,19 @@
+<button style="grid-column: 2; grid-row: 1; justify-self: end; height: 30px; width: 30px" 
+        ng-click="$ctrl.isOpen = false">
+</button>
+
+<button style="grid-column: 1; grid-row: 1; height: 30px; width: 30px" 
+        ng-init="isAllCollapse = null" 
+        ng-click="$broadcast('filterPanel:collapse', [isAllCollapse = !isAllCollapse])">
+</button>
+
+<div>
+    <ng-transclude/>
+    <acordeon ng-repeat="(name, value) in $ctrl.filters" header="::($ctrl.filtersType[name].label || name)">
+        <filter-item key="name" for="value" />
+    </acordeon>
+</div>
+
+<span style="grid-column: span 2;"> Ogłoszeń: <strong>{{$ctrl.filteredCollection.length}}</strong> </span>
+<button  ng-click="$ctrl.collectionChange({$event: $ctrl.filteredCollection})">Zastosuj</button>
+<button  ng-click="$ctrl.reset()">Resetuj</button>

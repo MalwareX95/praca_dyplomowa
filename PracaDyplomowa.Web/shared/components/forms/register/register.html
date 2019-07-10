@@ -1,0 +1,49 @@
+<form role="form" name="form" ng-submit="$ctrl.register(form)" novalidate>
+    <input tabindex="1"  
+           type="text" 
+           name="userName" 
+           ng-model="userName" 
+           placeholder="nazwa użytkownika"
+           required 
+           autocomplete="off">
+    <error-messages for="form.userName" messages="$ctrl.messages" />
+    
+    <input type="text" 
+           tabindex="2" 
+           style="grid-row: 2" 
+           name="email" 
+           ng-model="email" 
+           ng-model-options="{updateOn: 'blur'}" 
+           required
+           placeholder="email">
+    <error-messages style="grid-row: 2" for="form.email" />
+
+    <input tabindex="3"  
+           style="grid-row: 3"
+           type="password" 
+           name="password" 
+           ng-model="password" 
+           required
+           placeholder="hasło">
+    <error-messages style="grid-row: 3" for="form.password" />
+
+    <input tabindex="4" 
+           name="confirmPassword" 
+           type="password"
+           style="grid-row: 4"
+           required 
+           ng-pattern="password"
+           ng-model="confirmPassword" 
+           ng-model-options="{updateOn: 'blur'}" 
+           placeholder="powtorz hasło">
+    <error-messages style="grid-row: 4" for="form.confirmPassword" messages="$ctrl.messages" />
+    
+    <button tabindex="4" 
+            style="justify-self: center;"
+            ng-disabled="form.$invalid" 
+            ng-class="{'gVWBuN': $ctrl.pending}" 
+            type="submit">
+    </button>
+    
+    <server-response response="$ctrl.serverResponse" />
+</form>

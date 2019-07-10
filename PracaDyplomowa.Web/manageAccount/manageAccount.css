@@ -1,0 +1,75 @@
+@import "./confirm/confirm.css";
+
+manage-account {
+    max-width: 550px;
+    padding: 12px;
+    display: block;
+    margin: auto;}
+    manage-account custom-input{
+        display: block;
+        height: inherit;
+        width: inherit;
+    }
+    manage-account > h1 {
+        color: rgb(129, 129, 129);
+        margin-left: 8px; 
+        font-size: 1.1em;
+        font-weight: bold; 
+        align-self: flex-start; 
+        margin-right: 14px;
+    }
+    manage-account > form {
+        position: relative;
+        display: grid;
+        grid-gap: 12px 40px;}
+        
+        @media screen and (min-width: 500px){
+            manage-account > form {
+                grid-template-columns: 1fr auto;
+            }
+        }
+        manage-account form > *{
+            grid-column: 1;
+        }
+        manage-account form > input {
+            height: 44px;
+            outline: none;
+            border: none;
+            z-index: 1;
+            border-radius: 8px;
+            box-shadow:  0px 0px 4px lightgray;
+            text-align: center;}
+            manage-account form > input:focus{
+                box-shadow:  0px 0px 6px rgb(82, 142, 255);
+            }
+        
+        manage-account form > button[type="submit"]{
+            height: 44px;
+            justify-self: center;
+            border-radius: 8px;
+            outline: none;
+            width: 120px;
+            color: rgba(0, 0, 0, 0.3);
+            transition: all 200ms cubic-bezier(1, 0.11, 1, 0.99);
+            opacity: 1;
+            border: none;
+            font-weight: bold;
+            perspective-origin: 50% 50%;
+            background: rgb(144, 238, 144);}
+            @media screen and (min-width: 500px){
+                manage-account form:nth-of-type(1) > button[type="submit"]{
+                    grid-column: 2; 
+                    grid-row: 1 / span 4;
+                    align-self: center;
+                }
+                manage-account form:nth-of-type(2) > button[type="submit"]{
+                    grid-row: 2;
+                    grid-column: 2;
+                }
+            }
+            manage-account form > button[type="submit"]:hover{
+                background: transparent;
+                box-shadow: 0 0 0 1px rgb(209, 209, 209);
+            }
+
+

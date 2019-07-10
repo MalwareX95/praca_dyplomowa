@@ -1,0 +1,16 @@
+<div ng-click="$ctrl.isFullsize = true">
+    <div><span style="flex-basis: 90px">{{$ctrl.currentIndex + 1}} / {{$ctrl.items.length}}</span></div>
+    <button ng-click="$ctrl.fullscreen = !$ctrl.fullscreen"></button>
+    <button ng-click="$ctrl.previous()" style="grid-column: 1; grid-row: 2; align-self: center;"> </button>
+    <button ng-click="$ctrl.next()" style="grid-column: 1; grid-row: 2; align-self: center; justify-self: end;"> </button>
+    <img ng-animate-swap="$ctrl.currentImage" draggable="false" ng-src="{{$ctrl.currentImage.name}}" >
+</div>
+
+<div ng-class="{fullscreen: isFullscreen}">
+    <img ng-repeat="image in $ctrl.items"
+         key="{{::$index}}"
+         draggable="false"
+         ng-src="{{::image.name}}"
+         ng-class="{active: $ctrl.currentImage == image}" 
+         ng-click="$ctrl.currentImage = image">
+</div>

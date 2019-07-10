@@ -1,0 +1,38 @@
+.signIn {
+    --input-height: 24px;
+    height: fit-content !important;}
+    .signIn form {
+        text-align: center;
+        display: grid;
+        grid-gap: 8px;
+        margin: 0 8px;
+        position: relative;
+        grid-auto-flow: row;
+    }
+    .signIn form input{
+        height: var(--input-height);
+        position: relative;
+        border-style: solid;
+        height: 34px;
+        text-align: center;
+        background: rgb(236, 236, 236);
+        outline: none;
+        font-size: 1em;
+        border-radius: 6px;
+        border: none;
+        box-shadow: inset 0 0 2px 0px rgb(161, 161, 161);
+        /* margin: var(--margin); */
+    }
+
+    
+    .signIn form input.ng-invalid{
+        border-color: rgba(255, 0, 0, 0.616);
+    }
+    .signIn button[type=submit]{
+        background-image: url('/icons/arrow-right.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .signIn button[type=submit]:disabled{
+        opacity: .50;
+    }

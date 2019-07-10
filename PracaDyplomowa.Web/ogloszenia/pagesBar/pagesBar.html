@@ -1,0 +1,19 @@
+<div>
+    <button ng-click="section = section - 1"></button>
+    <div>
+        <div class="pagesContainer">
+            <button class="pageCircle" 
+                    ng-repeat="item in pages"
+                    ng-click="$parent.currentPage = $parent.section + $index" 
+                    ng-class="{swapRight: direction, 
+                               swapLeft: direction == false,
+                               activePage: $index == $parent.currentPage % 10}"
+                    ng-disabled="isDisabled($index)" >
+            </button>
+        </div>
+        <div style="background: pink; text-align: center; width: fit-content; max-width: 100%; margin: auto; margin-top: 4px;">
+            {{currentPage + 1}} / {{pagesCount()}}
+        </div>
+    </div>
+    <button ng-click="section = section + 1"></button>
+</div>

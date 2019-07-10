@@ -1,0 +1,50 @@
+$transition: 400ms
+
+tabs 
+    display: block
+    --offset: 0px
+    height: 40px
+    div
+        &[ng-transclude]
+            display: flex
+            height: calc(100% - 4px)
+            label
+                display: flex
+                align-items: center
+                justify-content: center
+                &:hover
+                    background: rgb(240, 240, 240)
+
+        &:nth-child(2)
+            height: 2px
+            background: rgb(175, 175, 175)
+            border-radius: 4px
+            overflow: hidden
+            &::before 
+                 content: ""
+                 transition: $transition ease-in-out
+                 width: 50%
+                 transform: translateX(var(--offset))
+                 height: 100%
+                 display: block
+                 background: orange
+    label
+        cursor: pointer
+        flex: 1
+        display: flex
+        input 
+            display: none
+            + span
+                transition: opacity $transition, color $transition ease
+                color: #AFAFAF
+                opacity: 0.5
+            &:checked + span 
+                opacity: 1
+                color: #49342C
+                text-shadow: 0px 0px 1px rgba(73, 52, 44, 0.40)
+                // color: orange
+                // color: rgb(230, 163, 39)
+
+
+
+        

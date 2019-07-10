@@ -1,0 +1,33 @@
+<div ng-ref="$ctrl.div">
+    <div>
+        <button type="button" ng-click="isReversed = !isReversed"></button>
+        <input type="text" 
+               class="form" 
+               placeholder="{{$ctrl.placeholder}}" 
+               ng-model="$ctrl.searchValue" 
+               ng-blur="$ctrl.ngModel.$setTouched()"
+               ng-focus="$ctrl.isListVisible = true">
+        <button type="button" ng-disabled="!$ctrl.isAnySelected" ng-click="$ctrl.apply()">+</button>
+    </div>
+    <div>
+        <ul class="ng-hide" ng-show="$ctrl.isListVisible">
+            <li ng-repeat="item in $ctrl.all | filter:$ctrl.isValid | orderBy:'name':isReversed track by $index">
+                <label style="display: flex; justify-content: space-between;">
+                    <ng-transclude/> <input type="checkbox" ng-model="item.isSelected">
+                </label>
+            </li>
+            <li ng-if="$ctrl.isAllTaken">{{$ctrl.empty}}</li>
+        </ul>
+    </div>
+</div>
+
+<ul>
+    <li ng-repeat="item in $ctrl.all | filter:{isSelected: null}" >
+        <ng-transclude/> <button type="button" ng-click="$ctrl.removeItem(item)">x</button>
+    </li>
+</ul>
+
+<button type="button" ng-click="$ctrl.clearAll()"></button>
+
+
+

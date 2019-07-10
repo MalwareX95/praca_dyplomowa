@@ -1,0 +1,141 @@
+
+$background: hsla(215, 15%, 22%, 0.911)
+
+searchbar 
+    --height: 50px
+    height: var(--height)
+    max-width: 450px
+    transition: width 100ms !important, background 600ms cubic-bezier(0.075, 0.82, 0.165, 1)
+    background: hsla(215, 15%, 22%, 0.911)
+    border-radius: 30px
+
+    &.compact
+        width: 50px !important
+        background: hsla(215, 15%, 22%, 0)
+        > *:nth-child(1)
+            background: inherit
+        button
+            border: none !important
+
+    &.compact.expand
+        width: 100% !important
+        background: hsla(215, 15%, 22%, 0.911)
+        // background: hsla(0, 0%, 100%, 0.911)
+        // > *:nth-child(1)
+        //     background: #2f3640
+        button
+            border: dashed 2px coral !important
+
+    > div
+        &:nth-child(1)
+            position: relative
+            z-index: 1
+            display: flex
+            justify-content: flex-end
+            height: inherit
+            border-radius: inherit
+            background: #2f3640
+            input 
+                font-weight: bold
+                text-align: center
+                border: none
+                color: white
+                flex: 1
+                background: transparent
+                outline: 0
+            button 
+                background-color: transparent
+                display: flex
+                align-items: center
+                justify-content: center
+                padding: 0
+                outline: none
+                transition: background 400ms, fill 400ms
+                flex-shrink: 0
+                margin-right: 5px
+                width: 40px
+                height: 40px
+                align-self: center
+                border: dashed 2px coral
+                border-radius: 50%
+                &:hover, &:active
+                    background-color: coral
+                    fill: white
+
+        &:nth-child(2)
+            flex-shrink: 0
+            overflow: hidden
+            color: white
+            background: transparent
+            max-height: 200px
+            margin-top: calc(0px - var(--height) / 2)
+            border-bottom-right-radius: inherit
+            border-bottom-left-radius: inherit
+            transition: all
+            > div 
+                background: $background
+                border-bottom-right-radius: inherit
+                border-bottom-left-radius: inherit
+                max-height: inherit
+                transition-duration: 200ms
+                &::before
+                    display: block
+                    content: ""
+                    height: 25px
+                > * 
+                    transition: opacity 300ms
+                &.ng-hide-add
+                    transition-timing-function: ease-out
+                    transform: translateY(0)
+                    > * 
+                        opacity: 1
+                    &.ng-hide-add-active
+                        transform: translateY(-100%)            
+                        > * 
+                            opacity: 0
+                &.ng-hide-remove
+                    transition-timing-function: ease-in
+                    transform: translateY(-100%)
+                    &.ng-hide-remove-active
+                        transform: translateY(0)
+                        > *
+                             opacity: 1
+                lazy-list
+                    max-height: 175px
+                    &.fade
+                        opacity: .4
+                        user-select: none
+                    &::-webkit-scrollbar 
+                        width: 4px
+                        background: transparent
+                    &::-webkit-scrollbar-thumb
+                        cursor: pointer
+                        background: rgba(255,255,255, .4)
+                        border-radius: 4px
+                        &:hover
+                            background: rgba(255,255,255, .8)
+                        
+                    &::-webkit-scrollbar-track-piece
+                        margin-top: 0px
+                        margin-bottom: 40px
+
+                div.overflow-wrapper
+                    justify-content: center
+                    padding: 0px 6px
+                    --sliding-duration: 6s
+                    cursor: pointer
+                    border-bottom: 1px rgba(202, 202, 202, 0.2) solid
+                    &:last-of-type
+                        border: none
+                        order: 2
+                    &:hover
+                        background: rgba(255, 255, 255, .30)
+                li.selected > div.overflow-wrapper
+                    background: rgb(99, 135, 255) !important
+                    color: white
+                p 
+                    margin: 0 0 0  -44px
+                    padding: 6px 0
+                    color: white
+                
+             

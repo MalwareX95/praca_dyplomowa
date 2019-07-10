@@ -1,0 +1,200 @@
+advert-preview {
+    height: calc(300px * 9/16); 
+    order: 1;
+    position: relative; 
+    overflow: hidden; 
+    display: block;
+    /* display: flex; */
+}
+
+advert-preview:hover::after{
+    opacity: 0;
+    transform: translateY(100%);
+    /* display: none; */
+}
+
+advert-preview:not(.new-card)::after{
+    position: absolute;
+    transition: 200ms ease-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    opacity: .35;
+    color: white;
+    content: attr(title);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 26px;
+}
+
+
+/* advert-preview button{
+
+} */
+
+
+
+advert-preview.ng-enter{
+    animation: addCard 300ms ease-in;
+}
+
+advert-preview.ng-leave{
+   animation: removeCard 300ms ease-out;
+   animation-fill-mode: forwards;
+}
+
+advert-preview.ng-leave.ng-leave-active{
+    transform: translateX(0);
+}
+
+advert-preview div[ng-controller]{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+advert-preview button.hidden{
+    visibility: hidden;
+    pointer-events: none;
+    opacity: 0;
+}
+
+advert-preview.new-card{
+    order: 0;
+}
+
+advert-preview:hover > img,
+advert-preview.active > img{
+    opacity: 1;
+    filter: grayscale(0);
+}
+
+advert-preview:hover:not(.active) > img{
+    /* filter: grayscale(60%) !important ; */
+    filter: saturate(35%);
+}
+
+advert-preview > img{
+    transition: 400ms ease;
+    height: inherit;
+    opacity: .80;
+    filter: grayscale(40%) blur(2px);
+}
+
+advert-preview.active > button{
+    background: rgba(163, 163, 163, 0.95);
+}
+
+
+advert-preview button{
+    height: 60px;
+    width: 60px;
+    cursor: pointer;
+    background-position: 50% 50%;
+    transition:  200ms ease-in-out;
+    background-repeat: no-repeat;
+    /* transition: background-color 200ms ease, 300ms ease-in; */
+    opacity: 1;
+    border: none;
+    outline: none;
+    color: rgba(255, 255, 255, 0.65);
+    background-color: rgba(110, 110, 110, 0.85);
+    /* background: rgba(65, 65, 65, 0.8); */
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.76);
+    border-radius: 50%;
+    z-index: 2;
+}
+
+/* advert-preview > button:hover{
+    background: rgba(68, 68, 68, 0.404);
+} */
+
+advert-preview  button:hover{
+    background-color: rgb(80, 80, 80);
+    transform: scale(1.1);
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.76);
+}
+
+advert-preview button.accept {
+    background-image: url('data:image/svg+xml;charset=UTF-8, <svg xmlns="http://www.w3.org/2000/svg" fill="white" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>');
+}
+
+advert-preview button.edit{
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" fill="white" width="24" height="24" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+}
+
+advert-preview button.del{
+    background-image: url('data:image/svg+xml;charset=UTF-8, <svg xmlns="http://www.w3.org/2000/svg" fill="white" width="24" height="24" viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+}
+
+advert-preview button.cancel{
+    background-image: url('data:image/svg+xml;charset=UTF-8, <svg xmlns="http://www.w3.org/2000/svg" fill="white" width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+}
+
+advert-preview button.restore{
+    background-image: url('data:image/svg+xml;charset=UTF-8, <svg xmlns="http://www.w3.org/2000/svg" fill="white" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg>');
+}
+
+advert-preview > p{
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+    background: rgba(255, 255, 255, 0.575);
+    width: 100%;
+    color: rgba(0, 0, 0, 0.507);
+    font-size: 1.2em;
+    text-align: center;
+}
+
+advert-preview.new-card > p{
+    display: none;
+}
+
+
+/* advert-preview.ng-leave{
+    animation: my_animation 400ms ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes my_animation {
+    to {
+         transform: translateX(-110%);
+         opacity: 0;
+    }
+} */
+
+advert-preview button.ng-enter,
+advert-preview button.ng-leave{
+    transition: 400ms ease-in !important;
+}
+
+advert-preview button.ng-leave.ng-leave-active,
+advert-preview button.ng-enter{
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+advert-preview button.ng-leave,
+advert-preview button.ng-enter.ng-enter-active{
+    transform: translateX(0);
+    opacity: 1;
+}
+
+
+@keyframes removeCard {
+    to{
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes addCard{
+    from {
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}

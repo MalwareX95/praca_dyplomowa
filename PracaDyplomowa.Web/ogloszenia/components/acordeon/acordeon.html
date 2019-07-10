@@ -1,0 +1,2 @@
+<div ng-click="$ctrl.isListVisible = !$ctrl.isListVisible" style="color:#A69696">{{$ctrl.header}} <span  ng-class="{open: $ctrl.isListVisible}" class="arrow"></span></div>
+<div ng-show="$ctrl.isListVisible" ng-transclude></div>

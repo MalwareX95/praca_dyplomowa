@@ -1,0 +1,464 @@
+@import url(./advertPreview/advertPreview.css);
+@import url(./list/list.css);
+@import url(./components/index.css);
+manage-advertisments #gallery {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -ms-grid;
+  display: grid;
+  justify-items: stretch;
+  grid-gap: 6px;
+  /* min-width: 410px */
+  -ms-flex-line-pack: start;
+      align-content: start;
+  -ms-grid-columns: (minmax(200px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+manage-advertisments #gallery file-selector {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+  border-radius: 8px;
+}
+
+manage-advertisments #gallery file-selector:first-child {
+  width: 200px;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+manage-advertisments #gallery file-selector, manage-advertisments #gallery ng-draggable {
+  min-width: 200px;
+  height: 100%;
+  min-height: 200px;
+}
+
+manage-advertisments #gallery ng-draggable.ng-enter {
+  -webkit-animation: ng-draggable_enter 500ms;
+          animation: ng-draggable_enter 500ms;
+}
+
+manage-advertisments #gallery ng-draggable.ng-leave {
+  -webkit-transition: 600ms ease-in !important;
+  transition: 600ms ease-in !important;
+  opacity: 1;
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
+}
+
+manage-advertisments #gallery ng-draggable.ng-leave.ng-leave-active {
+  opacity: 0;
+  -webkit-transform: rotate(360deg) scale(0);
+          transform: rotate(360deg) scale(0);
+}
+
+manage-advertisments #gallery ng-draggable.remove {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+
+manage-advertisments #gallery ng-draggable > div[ng-transclude] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  -webkit-box-shadow: 0 0 6px -1px rgba(0, 0, 0, 0.801);
+          box-shadow: 0 0 6px -1px rgba(0, 0, 0, 0.801);
+  border-radius: 8px;
+  -webkit-transition: 200ms ease-in-out;
+  transition: 200ms ease-in-out;
+  overflow: hidden;
+}
+
+manage-advertisments #gallery ng-draggable img {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+manage-advertisments #gallery ng-draggable button {
+  position: relative;
+  height: 24px;
+  width: 24px;
+  opacity: .40;
+  background: transparent;
+  border: none;
+  outline: none;
+  /* background: rgba(145, 145, 145, 0.205) */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  z-index: 1;
+}
+
+manage-advertisments #gallery ng-draggable button:hover {
+  opacity: .80;
+}
+
+manage-advertisments #gallery ng-draggable button.bin {
+  background-image: url("/icons/baseline-delete-24px.svg");
+}
+
+manage-advertisments #gallery ng-draggable button.bin.restore {
+  background-image: url("/icons/baseline-restore-24px.svg");
+}
+
+manage-advertisments #gallery ng-draggable button.apply {
+  background-image: url("/icons/baseline-done-24px.svg");
+}
+
+manage-advertisments #gallery ng-draggable.delete {
+  -webkit-transition-property: -webkit-box-ordinal-group;
+  transition-property: -webkit-box-ordinal-group;
+  transition-property: order;
+  transition-property: order, -webkit-box-ordinal-group, -ms-flex-order;
+  -webkit-transition-delay: 400ms;
+          transition-delay: 400ms;
+  -webkit-animation: kk 800ms ease-in;
+          animation: kk 800ms ease-in;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+
+manage-advertisments #gallery ng-draggable.delete img {
+  opacity: .40;
+}
+
+@-webkit-keyframes kk {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  95% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes kk {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  95% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@-webkit-keyframes ng-draggable_enter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes ng-draggable_enter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+manage-advertisments form.ng-submitted #basic-info *.ng-invalid + div, manage-advertisments form #basic-info label > *:focus + div, manage-advertisments form #basic-info label .stay-up {
+  left: 0 !important;
+  font-size: var(--font-size-up);
+  -webkit-transform: scale(0.4) !important;
+          transform: scale(0.4) !important;
+}
+
+manage-advertisments form.ng-submitted #basic-info *.ng-invalid + div > span {
+  display: initial !important;
+}
+
+manage-advertisments form #basic-info {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  grid-gap: 16px;
+  -ms-grid-columns: (300px)[auto-fill];
+      grid-template-columns: repeat(auto-fill, 300px);
+}
+
+manage-advertisments form #basic-info > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+manage-advertisments form #basic-info > div > label:nth-child(1) {
+  margin-right: 10px;
+}
+
+manage-advertisments form #basic-info > div > label:nth-child(2) {
+  margin-left: 10px;
+}
+
+manage-advertisments form #basic-info label {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  height: 44px;
+  color: #646464;
+  --font-size: 18px;
+  --font-size-up: 30px;
+  position: relative;
+}
+
+manage-advertisments form #basic-info label *.ng-invalid.ng-touched {
+  border-bottom-color: red !important;
+}
+
+manage-advertisments form #basic-info label > *.ng-untouched + div > span {
+  display: none;
+}
+
+manage-advertisments form #basic-info label *:focus {
+  border-bottom-color: #5897fe !important;
+  color: black;
+}
+
+manage-advertisments form #basic-info label input, manage-advertisments form #basic-info label select {
+  outline: none;
+  width: 100%;
+  text-align: center;
+  font-size: var(--font-size);
+  background: transparent;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  border: none;
+  color: rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid #f0f0f0;
+}
+
+manage-advertisments form #basic-info label > div {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  opacity: .50;
+  pointer-events: none;
+  font-size: 26px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-bottom: 3px;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  left: 50%;
+  font-size: var(--font-size);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  height: 100%;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-transition: all 200ms ease-out !important;
+  transition: all 200ms ease-out !important;
+}
+
+manage-advertisments form #basic-info label > div > span:nth-of-type(2) {
+  color: red;
+  font-weight: 600;
+  margin-left: 4px;
+}
+
+manage-advertisments form #basic-info label > div > span:nth-of-type(2).ng-enter {
+  -webkit-transition: 700ms;
+  transition: 700ms;
+  opacity: 0;
+}
+
+manage-advertisments form #basic-info label > div > span:nth-of-type(2).ng-enter.ng-enter-active {
+  opacity: 1;
+}
+
+manage-advertisments {
+  --sidebar-width: 300px;
+  min-height: inherit;
+}
+
+manage-advertisments h1 {
+  font-size: 20px;
+  margin-left: 12px;
+}
+
+manage-advertisments #description {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  max-height: 90vh;
+  min-height: 400px;
+  max-width: 600px;
+  margin: 0 12px 12px 12px;
+  overflow: hidden;
+  resize: vertical;
+  padding: 0;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  outline: none;
+  border: none;
+  border-top: 1px solid #ececec;
+  border-bottom: 1px solid #ececec;
+}
+
+@media screen and (min-width: 1px) and (max-width: 1324px) {
+  manage-advertisments #description {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    width: calc(100% - 24px);
+  }
+}
+
+manage-advertisments advert-preview {
+  mix-blend-mode: multiply;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+
+manage-advertisments advert-preview.new-card {
+  -webkit-box-ordinal-group: 1;
+      -ms-flex-order: 0;
+          order: 0;
+}
+
+manage-advertisments #abc {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media screen and (min-width: 1px) and (max-width: 1324px) {
+  manage-advertisments #abc {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+  }
+}
+
+manage-advertisments > div:nth-child(1) {
+  position: fixed;
+  z-index: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  top: 50px;
+  bottom: 0;
+  width: var(--sidebar-width);
+  -webkit-box-shadow: inset -6px -1px 12px 2px #c5c5c5;
+          box-shadow: inset -6px -1px 12px 2px #c5c5c5;
+  overflow: auto;
+  padding-right: 4px;
+  direction: rtl;
+}
+
+@media screen and (max-width: 780px) {
+  manage-advertisments > div:nth-child(1) {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+}
+
+manage-advertisments > div:nth-child(1) > * {
+  direction: ltr;
+}
+
+manage-advertisments > div:nth-child(1)::-webkit-scrollbar {
+  width: 8px;
+  background-color: #3d3d3d;
+}
+
+manage-advertisments > div:nth-child(1)::-webkit-scrollbar-track-piece {
+  border: 3px solid transparent;
+  background-color: black;
+  background-clip: padding-box;
+}
+
+manage-advertisments > div:nth-child(1)::-webkit-scrollbar-thumb {
+  background: #cccccc;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+
+manage-advertisments > div:nth-child(1) a {
+  background-image: url("/icons/add-ad.svg");
+  background-repeat: no-repeat;
+  background-color: #e6e6e6;
+  background-size: 40px 40px;
+  background-position: 50% 50%;
+  display: block;
+  height: calc(300px * 9/16);
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  border: 3px dashed #c9c9c9;
+}
+
+manage-advertisments > form:nth-child(2) {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+manage-advertisments > form:nth-child(2).ng-submitted *.ng-invalid {
+  border-bottom-color: red !important;
+}
+
+@media screen and (min-width: 780px) {
+  manage-advertisments > form:nth-child(2) {
+    margin-left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
+  }
+}
+
+manage-advertisments > form:nth-child(2) > fieldset {
+  border: none;
+  padding: 12px 0 0 0;
+  margin: 0;
+}
+/*# sourceMappingURL=manageAdvertisments.css.map */

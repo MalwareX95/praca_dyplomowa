@@ -1,0 +1,59 @@
+acordeon{
+    display: block;
+    margin: 4px;
+    box-shadow: 0 1px 8px -3px black;
+}
+
+
+acordeon > div:first-child {
+    display: flex;
+    position: relative;
+    align-items: center;
+    cursor: pointer;
+    padding: 0 4px;
+    justify-content: space-between;
+    height: 30px;
+    text-transform: capitalize;
+    color: rgb(102, 102, 102);
+    background: rgb(243, 243, 243);
+    /* background: rgb(243, 243, 243);}  */}
+
+    acordeon .arrow{
+        transition: transform 200ms ease;
+        background-image: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path d='M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z'/><path fill='none' d='M0 0h24v24H0V0z'/></svg>");
+        background-position: 50% 50%;
+        flex-basis: 24px;
+        height: 24px;
+        transform: rotate(0deg);
+    }
+
+    acordeon .arrow.open {
+        transform: rotate(90deg);
+    }
+
+
+acordeon > div[ng-transclude]{
+    max-height: 200px;
+    background: rgba(250, 250, 250, 250);
+    overflow: hidden;
+}
+
+acordeon > div[ng-transclude].ng-hide-remove{
+    transition: 200ms ease-in;
+    height: 0;
+    opacity: 0;}
+
+acordeon > div[ng-transclude].ng-hide-remove.ng-hide-remove-active{
+    height: var(--height);
+    opacity: 1;}
+
+acordeon > div[ng-transclude].ng-hide-add{
+    transition: 200ms ease-out;
+    height: var(--height);
+    opacity: 1;
+}
+
+acordeon div[ng-transclude].ng-hide-add.ng-hide-add-active{
+    height: 30px;
+    opacity: 0;
+}

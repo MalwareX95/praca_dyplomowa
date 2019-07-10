@@ -1,0 +1,111 @@
+@import url(./advertPreview/advertPreview.css)
+@import url(./list/list.css)
+@import url(./components/index.css)
+@import _gallery
+@import _fields
+
+
+
+manage-advertisments
+    --sidebar-width: 300px
+    min-height: inherit
+
+
+    h1 
+        font-size: 20px
+        margin-left: 12px
+
+    #description
+        flex: 1
+        max-height: 90vh
+        min-height: 400px
+        max-width: 600px
+        margin: 0 12px 12px 12px
+        overflow: hidden 
+        resize: vertical
+        padding: 0
+        height: fit-content
+        outline: none 
+        border: none
+        border-top: 1px solid rgb(236, 236, 236) 
+        border-bottom: 1px solid rgb(236, 236, 236)
+        @media screen and (min-width: 1px) and (max-width: 1324px)
+            align-self: center
+            width: calc(100% - 24px)
+
+
+    advert-preview
+        mix-blend-mode: multiply
+        box-sizing: border-box
+        order: 1
+
+    advert-preview.new-card
+        order: 0
+
+    #abc 
+        display: flex
+        flex-flow: row wrap     
+        justify-content: center
+        @media screen and (min-width: 1px) and (max-width: 1324px)
+            flex-flow: column
+
+    > div:nth-child(1)
+        position: fixed
+        z-index: 2
+        display: flex
+        flex-flow: column
+        top: 50px
+        bottom: 0
+        width: var(--sidebar-width)
+        box-shadow: inset -6px -1px 12px 2px rgb(197, 197, 197)
+        overflow: auto
+        padding-right: 4px
+        direction: rtl
+
+        @media screen and (max-width: 780px)
+            transform: translateX(-100%)
+
+        > * 
+            direction: ltr
+
+        &::-webkit-scrollbar
+            width: 8px
+            background-color: rgb(61, 61, 61)
+        
+        &::-webkit-scrollbar-track-piece
+            border: 3px solid transparent
+            background-color: black
+            background-clip: padding-box
+        
+        &::-webkit-scrollbar-thumb
+            background: rgb(204, 204, 204)
+            border: 3px solid transparent
+            background-clip: padding-box
+      
+        a
+            background-image: url('/icons/add-ad.svg')
+            background-repeat: no-repeat
+            background-color: rgb(230, 230, 230)
+            background-size: 40px 40px
+            background-position: 50% 50%
+            display: block
+            height: calc(300px * 9/16) 
+            flex-shrink: 0
+            border: 3px dashed rgb(201, 201, 201)
+
+
+    > form:nth-child(2)
+        box-sizing: border-box
+        &.ng-submitted *.ng-invalid
+            border-bottom-color: red !important
+        @media screen and (min-width: 780px)
+            margin-left: var(--sidebar-width)
+            width: calc(100% - var(--sidebar-width))
+        > fieldset
+            border: none  
+            padding: 12px 0 0 0
+            margin: 0
+
+
+
+

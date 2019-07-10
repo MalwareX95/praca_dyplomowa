@@ -1,0 +1,47 @@
+div.overflow-wrapper{
+    display: flex ;
+    overflow: hidden ;
+}
+
+div.overflow-wrapper > p[ng-transclude]{
+    margin: 0;
+    white-space: nowrap;}
+    div.overflow-wrapper > p[ng-transclude].overflow{
+        text-overflow: ellipsis;
+        overflow: hidden; 
+        /* text-align: right; */
+        /* margin: 0 !important; */
+    }
+    div.overflow-wrapper:hover > p[ng-transclude].overflow{
+        overflow: visible !important;
+        animation-name: tmp;
+        animation-delay: 240ms;
+        animation-duration: var(--sliding-duration,  5s);
+        animation-timing-function: cubic-bezier(0.68, 0.68, 0.42, 0.99);
+        animation-iteration-count: infinite;
+    }
+
+
+
+@keyframes tmp{
+    49%{
+        width: fit-content;
+        opacity: 1;
+    }
+    50%{
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    51%{
+        opacity: 0;
+        transform: translateX(100%)
+    }
+    52%{
+        opacity: 1;  
+    }
+    100%{
+        transform: translateX(0)
+    }
+}
+
+

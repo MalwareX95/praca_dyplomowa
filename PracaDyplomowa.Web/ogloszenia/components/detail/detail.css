@@ -1,0 +1,146 @@
+detail{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    z-index: 3;
+    width: 400px;
+    max-width: 700px;
+    right: 0;
+    height: calc(100% - 50px);
+    min-width: 400px;
+    background: rgba(240, 240, 240, 0.90);
+    box-sizing: border-box;
+    box-shadow: 0 0 40px black;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;}
+
+
+    detail.open{
+        transform: translateX(0);
+    }
+    detail ul {
+        list-style-position: inside;
+        word-break: break-word;
+    }
+    detail li {
+        break-inside: avoid-column;
+    }
+    detail > div:nth-child(2){
+        overflow-y: auto;
+        /* position: relative; */
+        height: 100%;}
+        /* detail > div:nth-child(2) > p::after{
+            display: block;
+            position: fixed;
+            content: "";
+            bottom: 0;
+            height: 50px;
+            width: 100%;
+            background: linear-gradient(to bottom, transparent 0% , rgba(255,255,255,.60) 30%, white 100%);
+        } */
+        detail > div:nth-child(2) > * {
+            margin: 0 10px 6px 10px;
+            color: rgb(87, 87, 87);}
+            detail > div:nth-child(2) > p::before {
+                content: "Opis";
+                display: block;
+                margin-bottom: 8px;
+                font-weight: bold;
+            }
+            detail > div:nth-child(2) > *:not(:first-child){
+                background: rgb(252, 252, 252);
+                border-radius: 8px;
+                padding: 8px;
+                box-shadow: 0 0 8px -2px rgba(0, 0, 0, 0.479)
+            }
+        detail > div:nth-child(2) > user-profile{
+            margin-top: 10px;
+            margin-bottom: 10px;}
+            detail >  div:nth-child(2) > user-profile img {
+                height: inherit;
+                width: inherit;
+                /* object-fit: cover;
+                object-position: center; */
+            }
+            detail >  div:nth-child(2) > user-profile img.ng-enter {
+                transition: 400ms ease-in;
+                opacity: 0;
+            }
+            detail >  div:nth-child(2) > user-profile img.ng-enter-active{
+                opacity: 1;
+            }
+        
+    detail .columns{
+        grid-gap: 2px;
+        columns: 4 130px;}
+
+    detail .columns.col2{
+        columns: 2;
+    }
+    detail .columns.col1{
+        columns: 1;
+    }
+
+    detail .columns::before, detail expandable::before {
+        content: attr(title);
+        margin-bottom: 6px;
+        display: block;
+        column-span: all;
+        font-weight: bold;
+    }
+        
+    detail basic-info-template > ul{
+        display: grid; 
+        padding: 0;
+        list-style: none; 
+        grid-gap: 8px 2px;
+        grid-auto-flow: dense;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));}
+        detail basic-info-template > ul > li strong {
+            font-size: 0.85em
+        }
+
+        detail basic-info-template > ul > li:nth-child(n):not(:nth-child(n + 5))
+         {
+            grid-column: span 3; 
+            border: none; 
+            display: flex; 
+            align-items: center
+        }
+
+        detail basic-info-template > ul > li:nth-child(n):not(:nth-child(n + 5)) > strong
+        {
+            flex: 1;
+            text-align: start;
+        }
+
+        detail basic-info-template > ul > li:nth-child(n):not(:nth-child(n + 5)) > span
+        {
+            flex: 2;
+        }
+
+        detail basic-info-template > ul > li{
+            text-align: center;
+            border: none;
+        }
+        detail basic-info-template > ul > li:nth-child(n + 4) {
+            border-right: 1px solid rgb(235, 235, 235);
+        }
+
+        detail basic-info-template > ul > li:nth-child(3n + 7){
+            border: none;
+        }
+
+        detail basic-info-template > ul > li:nth-child(n + 3) span {
+            line-height: 1.4em;
+        }
+
+@media screen and (max-width: 1100px){
+    detail {
+        max-width: 400px;
+    }
+
+    .resizable{
+        display: none;
+    }
+}

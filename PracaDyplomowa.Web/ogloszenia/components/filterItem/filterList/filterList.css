@@ -1,0 +1,53 @@
+ul[ng-controller^="listFilter"] {
+    padding: 0px 4px;
+    display: flex;
+    user-select: none;
+    flex-direction: column;
+    margin: 0;
+    list-style: none;}
+    ul[ng-controller^="listFilter"] p {
+        margin: 0;
+    }
+    ul[ng-controller^="listFilter"] > li {
+        --border:  1px solid rgb(235, 235, 235);
+        border-bottom: var(--border);
+        /* box-shadow: 0 0 1px 0 black; */
+        /* background: rgb(250, 250, 250); */}
+    ul[ng-controller^="listFilter"] > li:last-child{
+        border: none;
+    }
+        ul[ng-controller^="listFilter"] > li.move-back{
+            order: 1;
+            opacity: .50;
+        }
+        ul[ng-controller^="listFilter"] > li > label {
+            display: grid;
+            grid-template-columns: 1fr 24px;
+            height: 28px;
+            align-items: center;
+            justify-content: space-between;}
+            ul[ng-controller^="listFilter"] > li > label > span{
+                user-select: none;
+                color: rgb(131, 131, 131);
+                /* align-items: center; */
+            }
+            ul[ng-controller^="listFilter"] > li > label > span:nth-child(2){
+                color: #F3F3F3;
+                text-align: center;
+                background: #85A68F;
+                font-size: 0.95em;
+                border-radius: 4px;
+                margin: 2px;
+                padding: 2px;
+            }
+            ul[ng-controller^="listFilter"] > li > label > svg{
+                fill: #85A68F;
+            }
+            
+    /* ul[ng-controller^="listFilter"] > li:first-child{
+        border-top: var(--border);
+    } */
+    
+
+    
+

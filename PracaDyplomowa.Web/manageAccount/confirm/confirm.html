@@ -1,0 +1,50 @@
+<form name="form"
+      class="ccqmo" 
+      role="form"
+      ng-submit="$ctrl.activateAccount(form)"
+      title="Wprowadź hasło w celu aktywacji konta"
+      novalidate>
+
+      <input name="userName" 
+             ng-model="userName"
+             style="grid-row: 2"
+             required
+             type="text"
+             placeholder="nazwa użytkownika" >
+      <error-messages style="grid-row: 2" for="form.userName" />
+
+      <password name="password"
+                style="grid-row: 3"
+                placeholder="hasło" 
+                ng-required="!password"
+                ng-model="password"/>
+      <error-messages style="grid-row: 3" for="form.password" />
+
+      <!-- <input name="token"
+             hidden
+             ng-model="$ctrl.$routeParams.token"
+             readonly
+             disabled
+             class="active" 
+             style="grid-row: 4">
+      <error-messages style="grid-row: 4" for="form.token" />
+
+      
+      <input name="userId" 
+             hidden
+             ng-model="$ctrl.$routeParams.user"
+             readonly
+             disabled
+             class="active" 
+             style="grid-row: 5">
+       <error-messages style="grid-row: 4" for="form.userId" /> -->
+
+      <button ng-disabled="form.$invalid" 
+              ng-class="{gVWBuN: $ctrl.isActivating}" 
+              type="submit">
+      </button>
+
+      <server-response response="$ctrl.serverResponse" />
+</form>
+<!-- <span>Error: {{form.password.$error.required}}</span> -->
+<!-- ng-required="!password" -->

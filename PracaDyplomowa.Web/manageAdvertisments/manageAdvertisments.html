@@ -1,0 +1,89 @@
+<div style="box-sizing: border-box;">
+    <!-- <div ng-if="!userCards" class="progressIndicator"></div> -->
+    <a ng-if="!$ctrl.isNewCardActive && $ctrl.isCompleteUserInfo" href="#!/konto/ogloszenia#new"></a>
+    <advert-preview style="flex-shrink: 0;"
+                    ng-repeat="card in $ctrl.userCards | orderBy:$ctrl.orderBy"
+                    title="{{::card.creationTime | date:'d-MMM-y HH:mm'}}"
+                    ng-class="{active: $ctrl.current == card}" 
+                    advert="::card" >
+    </advert-preview>
+</div>
+
+<div ng-if="!$ctrl.isCompleteUserInfo" style="display: flex; align-items: center; background: bisque; padding: 16px;  width: fit-content; border-radius: 6px; margin: auto; margin-left: 320px; color: white; font-weight: bold; margin-top: 30px"> 
+        Aby dodać ogłoszenie musisz wypełnić brakujące dane, <a style="margin-left: 4px; text-decoration: none; cursor: pointer" href="/#!/konto/edytujDane"> przejdź do strony zarządzania kontem</a>
+</div>
+
+<form name="form" role="form" ng-ref="$ctrl.formRef" ng-if="$ctrl.current != null && $ctrl.isCompleteUserInfo" novalidate >
+    <fieldset  style="border: none;  padding: 12px 0 0 0;   margin: 0; " ng-disabled="!$ctrl.editMode">
+            <h1>Informacje podstawowe</h1>
+            <div id="basic-info">
+                <dynamic-field ng-repeat="(name, field) in $ctrl.form" name="{{name}}" for="field" />
+            </div>
+            <hr class="dashed">
+            <h1>Media</h1>
+            <div style="position: relative;">
+                <list name="media"
+                      ng-model="$ctrl.current.media" 
+                      ng-model-options="{allowInvalid: true}"
+                      ng-required="true"
+                      custom-required
+                      all="$ctrl.hints.media"
+                      placeholder="Wybierz media"
+                      empty="Wybrano wszystkie media">
+                      {{$parent.item.value.name}}
+                </list>
+                <error-messages class="arrow-up" style="top: 38px;" for="form.media" messages="$ctrl.mediaErrorHandlers" />
+            </div>
+            <h1>Informacje dodatkowe</h1>
+            <div>
+                <list name="extraInfo"
+                      ng-model="$ctrl.current.extraInfo" 
+                      all="$ctrl.hints.extraInfo"
+                      placeholder="Wybierz informacje dodatkowe"
+                      empty="Brak elementów">
+                      {{$parent.item.value.name}}
+                </list>
+            </div>
+            <hr class="dashed">
+            <h1>Opis, galeria</h1>
+            <div id="abc">
+                <textarea ng-model="$ctrl.current.description" 
+                          id="description"
+                          ng-auto-resize
+                          required
+                          maxlength="3000" 
+                          placeholder="Napisz krótki opis swojego ogłoszenia">
+                </textarea>
+                    <!-- <p>Opis <span style="float: right">Pozostało {{3000 - description.length}}</span></p> -->
+                <div style="margin: 0 12px 12px 12px" id="gallery">
+                    <ng-draggable ng-repeat="image in $ctrl.current.images" ng-class="{lock: !$ctrl.editMode, delete:image.isDelete}"  identifier="{{$index}}">
+                        <button class="apply" ng-if="image.isDelete" ng-click="$ctrl.current.images.remove(image)"></button>
+                        <button class="bin"   ng-click="image.isDelete = !image.isDelete" ng-class="{restore: image.isDelete } "></button>
+                        <img style="object-fit: cover" width="100%" height="100%" ng-src="{{image.name}}"> 
+                    </ng-draggable>
+                    <file-selector ng-if="$ctrl.freeslotsCount"
+                                   name="images"
+                                   ng-model="images"
+                                   ng-required="!$ctrl.current.images.length"
+                                   ng-change= "$ctrl.concate(images)"
+                                   multiple />
+
+                </div>
+            </div>
+            <div style="position: relative;">
+                <searchbox name="city" 
+                           ng-ref="$ctrl.searchbox"
+                           debounce="100"
+                           items = "$ctrl.cities"
+                           state="$ctrl.current"
+                           ng-model="$ctrl.current.city" 
+                           ng-required="!$ctrl.current.city" 
+                           on-searching="$ctrl.onSearchingHandler($event)"
+                           ng-focus="$ctrl.onFocusHandler()">
+                           <!-- ng-blur="$ctrl.myHubConnection.stop()" -->
+                    {{::$ctrl.template($parent.item)}}
+                </searchbox>
+                <error-messages class="arrow-up" style="top: 29px;" for="form.city" messages="$ctrl.searchboxErrorsHandlers" />
+            </div>
+    </fieldset>
+</form>

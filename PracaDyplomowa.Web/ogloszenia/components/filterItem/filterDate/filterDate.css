@@ -1,0 +1,7 @@
+filter-panel input[type="date"]{
+    /* background: red; */
+    outline: none;
+    border: none;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
