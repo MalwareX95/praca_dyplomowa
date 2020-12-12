@@ -3,6 +3,7 @@
 Temat pracy inżynierskiej: "INTERNETOWY SERWIS NIERUCHOMOŚCI OPARTY NA KONWENCJI SPA"
 
 Wykorzystane technologie: AngularJS, SignalR, ASP.NET  Web API, Entity Framework 6
+Oryginale repo: https://malwarex.visualstudio.com/PracaDyplomowa_2
 
 1.Strona Główna
 ![alt text](https://github.com/MalwareX95/praca_dyplomowa/blob/master/wiki/Items.png)
